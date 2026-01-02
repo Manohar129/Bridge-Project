@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Election Polling Dashboard</title>
+
+<style>
+    body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        min-height: 100vh;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #eef2f3, #d9e2ec);
+    }
+
+    .dashboard {
+        background: #ffffff;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+        text-align: center;
+        width: 720px;
+    }
+
+    h1 {
+        margin-bottom: 10px;
+        color: #2c3e50;
+    }
+
+    .year {
+        font-size: 20px;
+        margin-bottom: 20px;
+        font-weight: 600;
+    }
+
+    button {
+        padding: 8px 18px;
+        margin: 0 8px 25px;
+        font-size: 14px;
+        border-radius: 6px;
+        border: 1px solid #ced4da;
+        background: #f8f9fa;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #e9ecef;
+    }
+
+    .chart {
+        display: flex;
+        justify-content: center;
+        gap: 120px;
+        align-items: flex-end;
+        height: 260px;
+    }
+
+    .bar-box {
+        text-align: center;
+    }
+
+    .outer {
+        height: 200px;
+        width: 120px;
+        background: #f5f5f5;
+        position: relative;
+        border-radius: 6px;
+        border: 1px solid #e0e0e0;
+        overflow: hidden;
+    }
+
+    .inner {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        transition: height 0.8s ease;
+    }
+
+    .bjp {
+        background:  #da5d10;
+    }
+
+    .inc {
+        background: #3d85e4;
+    }
+
+    .label {
+        margin-top: 12px;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .percent {
+        font-size: 14px;
+        color: #6c757d;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="dashboard">
+    <h1>Election Polling Dashboard</h1>
+
+    <div class="year">Year: <span id="year">2024</span></div>
+
+    <div>
+        <button onclick="prevYear()">Previous Year</button>
+        <button onclick="nextYear()">Next Year</button>
+    </div>
+
+    <div class="chart">
+        <div class="bar-box">
+            <div class="outer">
+                <div class="inner bjp" id="bjpBar"></div>
+            </div>
+            <div class="label">BJP</div>
+            <div class="percent" id="bjpPercent">0%</div>
+        </div>
+
+        <div class="bar-box">
+            <div class="outer">
+                <div class="inner inc" id="incBar"></div>
+            </div>
+            <div class="label">INC</div>
+            <div class="percent" id="incPercent">0%</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    let currentYear = 2024;
+
+    // 🔗 Replace with real API endpoint
+    const API_BASE_URL = "https://mockapi.io/projects/demo/election";
+
+    async function fetchPollData(year) {
+        try {
+            // Example: https://api/election?year=2024
+            const response = await fetch(`${API_BASE_URL}?year=${year}`);
+
+            // ---- MOCK FALLBACK (for demo / offline) ----
+            const mockData = {
+                2022: { bjp: 48, inc: 39 },
+                2023: { bjp: 52, inc: 42 },
+                2024: { bjp: 56, inc: 44 },
+                2025: { bjp: 59, inc: 46 }
+            };
+            const data = mockData[year] || { bjp: 50, inc: 40 };
+            // -------------------------------------------
+
+            document.getElementById("bjpBar").style.height = data.bjp + "%";
+            document.getElementById("incBar").style.height = data.inc + "%";
+
+            document.getElementById("bjpPercent").innerText = data.bjp + "%";
+            document.getElementById("incPercent").innerText = data.inc + "%";
+
+            document.getElementById("year").innerText = year;
+
+        } catch (error) {
+            console.error("API Error:", error);
+        }
+    }
+
+    function prevYear() {
+        currentYear--;
+        fetchPollData(currentYear);
+    }
+
+    function nextYear() {
+        currentYear++;
+        fetchPollData(currentYear);
+    }
+
+    fetchPollData(currentYear);
+</script>
+
+</body>
+</html>

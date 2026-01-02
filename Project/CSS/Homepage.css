@@ -1,0 +1,48 @@
+body{
+    color:#828282 ;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+}
+  /* Navbar CSS */
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px;
+}
+
+.nav-links{
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav-links li{
+    list-style: none;
+    margin: 0 0px;
+}
+ul li a{
+    text-decoration: none;
+    color: #000000;
+    font-weight: 500;
+    font-size: larger;
+    align-content: right;
+    margin-left: 30px;
+
+}
+.nav-links{
+    margin-left: 100px;
+}
+
+/* Donate Now Button CSS */
+.DONATE-NOW a{
+    background-color:#86B04A;
+    color: white;
+    padding: 20px 30px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.DONATE-NOW a:hover{
+    background-color: #262626;
+    transition: 0.3s;
+}

@@ -92,11 +92,11 @@ button:hover {
 
 /* PARTY COLORS (AUTHENTIC & MUTED) */
 .bjp {
-    background: linear-gradient(to top, #ff8c42, #ffb27a);
+    background:  #ff8c42;
 }
 
 .inc {
-    background: linear-gradient(to top, #2ca58d, #7ed6a7);
+    background:  #1450f5bb;
 }
 
 /* PARTY LABEL */
@@ -116,7 +116,7 @@ button:hover {
 
 /* YEAR-BASED BACKGROUND THEMES */
 .year-2022 {
-    background: linear-gradient(135deg, #d1c4a3, #f8b500);
+    background: linear-gradient(135deg, #d1c4a3, #d3e90f);
 }
 
 .year-2023 {

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../html,css/interactivepage.css">
+    <title>Interactive web page</title>
+</head>
+<body>
+    <header>
+    <div class="header">
+        <h1>Interactive web page</h1>
+    </div>
+    <div class="nav-bar">
+        <ul class="nav-items">
+            <li><a href="">Home</a></li>
+            <li><a href="">Dimanic</a></li>
+            <li><a href="">Timer</a></li>
+            <li><a href="">Contact form</a></li>
+        </ul>
+    </div>
+    <div class="about-this-page">
+        <h2>About this page</h2>
+    </div>
+    </header>
+    <div class="container about" style="margin-bottom: 10px;">
+        <div class="about-text">
+            <p>
+                This is a sample interactive web page built using HTML and JavaScript.
+                It features dynamic content manipulation, form validation, and local storage.
+            </p>
+
+            <ul>
+                <li>DOM manipulation</li>
+                <li>Form validation</li>
+                <li>Event handling</li>
+                <li>Dynamic content updates</li>
+                <li>Local storage</li>
+            </ul>
+        </div>
+
+        <div class="about-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100940.14245968247!2d-122.43759999999999!3d37.75769999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80859a6d00690021%3A0x4a501367f076adff!2sSan%20Francisco%2C%20CA%2C%20USA!5e0!3m2!1sen!2sin!4v1767438406786!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+             <button class="btn-toggle">Toggle Map</button>
+        </div>
+    </div>
+    <div class="to-dolist">    
+        <div class="container-todo">
+            <h2>Interactive To-Do List</h2>
+
+            <div class="todo-input">
+                <input type="text" id="taskInput" placeholder="New Task..."> <br>
+                  <button id="addTaskBtn">Add</button>
+
+                   <ul id="taskList"></ul>
+
+                   <button id="clearTasks">Clear All Tasks</button><br>
+            </div>       
+
+
+            <div class="container timer" style="margin-bottom: 10px;">
+                <h2 style="padding-bottom: 2px;">Auto-Updating Timer</h2>
+                <p>This counter auto-updates every second:</p>
+
+                <h3 id="timerDisplay">Time elapsed: 00:00:00</h3>
+
+                <button id="pauseBtn">Pause Timer</button>
+                <button id="resetBtn">Reset Timer</button>
+            </div>
+            <div class="feast-video">
+                <h2 style="border-bottom: 1px solid silver; margin-bottom: 5px;" >Feat Hesions & videos</h2>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100940.14245968247!2d-122.43759999999999!3d37.75769999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80859a6d00690021%3A0x4a501367f076adff!2sSan%20Francisco%2C%20CA%2C%20USA!5e0!3m2!1sen!2sin!4v1767438406786!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <button class="btn-toggles">Toggle Map</button>
+
+            </div>
+
+        </div>
+        <div class="container timer timer-gap" style="margin-bottom: 10px;">
+            <h2>Auto-Updating Timer</h2>
+            <p>This counter auto-updates every second:</p>
+
+            <h3 id="timerDisplay">Time elapsed: 00:00:00</h3>
+
+            <button id="pauseBtn">Pause Timer</button>
+            <button id="resetBtn">Reset Timer</button>
+        
+
+
+            <div class="container contact">
+                <h2>Contact Form</h2>
+                <label for="name">Name :</label>
+                <input type="text" id="name">
+                <p id="nameError"></p>
+                <label for="email">Email:</label>
+
+                <input type="email" id="email">
+                <p id="emailError"></p>
+                <label for="password">password:</label>
+
+                <input type="password" id="password">
+                <p id="passError"></p>
+
+                <textarea id="message"></textarea> <br>
+
+
+                <input type="checkbox">
+                <label for="text">subscribe to newsletter?</label>
+                <input type="checkbox">
+                <label for="yes">yes</label>
+                <input type="checkbox">
+                <label for="No">No</label> 
+
+                <label for="text">Preferred contact:</label>
+                <input type="checkbox">
+                <label for="email">Email</label>
+
+                <input form="checkbox">
+                <label for="phone">phone</label>
+                
+                
+
+
+                <button id="clearForm">Clear Data</button>
+               
+
+            </div>
+             <p class="successMsg">Your information is saved in this browser!</p>
+
+        </div>
+    </div> 
+    <footer>
+        <p>© 2024 Interactive Web Project | Your email: user@example.com</p>
+        <a href="#">Privacy Policy</a> |
+        <a href="#">Terms of Service</a>
+    </footer>
+
+
+    <script>
+            
+        const taskInput = document.getElementById("taskInput");
+        const addTaskBtn = document.getElementById("addTaskBtn");
+        const taskList = document.getElementById("taskList");
+        const clearTasks = document.getElementById("clearTasks");
+
+        // Load tasks on page load
+        window.onload = function () {
+        const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+        savedTasks.forEach(task => addTask(task));
+        };
+
+        // Add task
+        addTaskBtn.onclick = function () {
+        if (taskInput.value === "") return;
+        addTask(taskInput.value);
+        saveTask(taskInput.value);
+        taskInput.value = "";
+        };
+
+        // Create task
+        function addTask(taskText) {
+        const li = document.createElement("li");
+        li.textContent = taskText;
+
+        const btn = document.createElement("button");
+        btn.textContent = "Remove";
+        btn.onclick = function () {
+            li.remove();
+            deleteTask(taskText);
+        };
+
+        li.appendChild(btn);
+        taskList.appendChild(li);
+        }
+
+        // Save task
+        function saveTask(task) {
+        const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+        tasks.push(task);
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+        }
+
+        // Delete task
+        function deleteTask(task) {
+        let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+        tasks = tasks.filter(t => t !== task);
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+        }
+
+        // Clear all
+        clearTasks.onclick = function () {
+        taskList.innerHTML = "";
+        localStorage.removeItem("tasks");
+        };
+
+        // timmer
+                
+        let seconds = 0;
+        let interval = null;
+        let isRunning = true;
+
+        const timerDisplay = document.getElementById("timerDisplay");
+        const pauseBtn = document.getElementById("pauseBtn");
+        const resetBtn = document.getElementById("resetBtn");
+
+        // Start timer
+        interval = setInterval(updateTimer, 1000);
+
+        function updateTimer() {
+            seconds++;
+
+            let hrs = Math.floor(seconds / 3600);
+            let mins = Math.floor((seconds % 3600) / 60);
+            let secs = seconds % 60;
+
+            hrs = hrs < 10 ? "0" + hrs : hrs;
+            mins = mins < 10 ? "0" + mins : mins;
+            secs = secs < 10 ? "0" + secs : secs;
+
+            timerDisplay.textContent = `Time elapsed: ${hrs}:${mins}:${secs}`;
+        }
+
+        // Pause / Resume
+        pauseBtn.onclick = function () {
+            if (isRunning) {
+                clearInterval(interval);
+                pauseBtn.textContent = "Resume Timer";
+            } else {
+                interval = setInterval(updateTimer, 1000);
+                pauseBtn.textContent = "Pause Timer";
+            }
+            isRunning = !isRunning;
+        };
+
+        // Reset
+        resetBtn.onclick = function () {
+            clearInterval(interval);
+            seconds = 0;
+            timerDisplay.textContent = "Time elapsed: 00:00:00";
+            interval = setInterval(updateTimer, 1000);
+            pauseBtn.textContent = "Pause Timer";
+            isRunning = true;
+        };
+
+        // form
+                    
+            const nameInput = document.getElementById("name");
+            const emailInput = document.getElementById("email");
+            const passwordInput = document.getElementById("password");
+            const messageInput = document.getElementById("message");
+
+            const nameError = document.getElementById("nameError");
+            const emailError = document.getElementById("emailError");
+            const passError = document.getElementById("passError");
+            const successMsg = document.getElementById("successMsg");
+
+            const clearForm = document.getElementById("clearForm");
+
+            // Validation
+            function validateForm() {
+                let valid = true;
+
+                if (nameInput.value === "") {
+                    nameError.textContent = "Please enter your name.";
+                    valid = false;
+                } else nameError.textContent = "";
+
+                if (!emailInput.value.includes("@")) {
+                    emailError.textContent = "Enter a valid email.";
+                    valid = false;
+                } else emailError.textContent = "";
+
+                if (passwordInput.value.length < 6) {
+                    passError.textContent = "Password must be at least 6 characters.";
+                    valid = false;
+                } else passError.textContent = "";
+
+                if (valid) saveForm();
+            }
+
+            // Save form data
+            function saveForm() {
+                const formData = {
+                    name: nameInput.value,
+                    email: emailInput.value,
+                    password: passwordInput.value,
+                    message: messageInput.value
+                };
+
+                localStorage.setItem("formData", JSON.stringify(formData));
+                successMsg.textContent = "Your information is saved in this browser!";
+            }
+
+            // Load saved data
+            window.onload = function () {
+                const data = JSON.parse(localStorage.getItem("formData"));
+                if (data) {
+                    nameInput.value = data.name;
+                    emailInput.value = data.email;
+                    passwordInput.value = data.password;
+                    messageInput.value = data.message;
+                }
+            };
+
+            // Clear form
+            clearForm.onclick = function () {
+                localStorage.removeItem("formData");
+                nameInput.value = "";
+                emailInput.value = "";
+                passwordInput.value = "";
+                messageInput.value = "";
+                successMsg.textContent = "";
+            };
+
+
+
+
+
+
+    </script>
+
+
+
+</body>
+</html>

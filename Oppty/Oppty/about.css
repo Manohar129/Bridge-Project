@@ -1,0 +1,82 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: "Space Grotesk", sans-serif;
+}
+body{
+    font-family: Space Grotes;
+}
+.head-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0px;
+    font-family: "Space Grotesk", sans-serif;
+}
+.head-logo img{
+    width: 150px;
+    height: 60px;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-bar ul{
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    c
+}
+.nav-bar a{
+    text-decoration: none;
+    color: #000;
+}
+
+.nav-bar ul li{
+    list-style: none;
+}
+
+.nav-bar :hover{
+    color: #E55F14;
+}
+
+.bcr{
+    background-color: #ec7733;
+    padding: 12px 20px ;
+    border-radius: 25px;
+    color: #1f1f1f;
+}
+
+/* BACK GROUND IMG*/
+
+
+.bag-img{
+    background-image: url(../Oppty/images/breadcrumb-bg.jpeg);
+    width: auto;
+    overflow: hidden;
+    object-fit: cover;
+    height: 300px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+}
+.img-bag h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 40px;
+    color: #fff;
+
+
+}
+
+.img-bag p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 20px;
+    color: #fff; 
+    border 
+
+}

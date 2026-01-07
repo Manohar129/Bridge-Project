@@ -1,0 +1,826 @@
+body {
+    font-family: "Space Grotesk", sans-serif;
+}
+
+header {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: #ffffff;
+    z-index: 1000;
+}
+
+header img {
+    width: 150px;
+    height: 50px;
+
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 80%;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    font-size: 14px;
+    color: rgb(51, 51, 51);
+}
+
+.nav2 {
+    padding: 10px;
+    background-color: #E55F14;
+    border-radius: 30px;
+
+}
+
+.nav2 a {
+    color: #fff;
+}
+
+.call {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* -Hero section- */
+.HeroSection{
+    padding: 80px;
+    margin-top: 80px;
+    background-image:linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)),url("../Sources/breadcrumb-bg.jpeg");
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.HeroSection h2{
+    text-align: center;
+    color: #fff;
+    font-size: 30px;
+    margin: 0;
+}
+.ContentLinks{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    gap: 20px;
+    font-size: 18px;
+    font-weight: 600;
+}
+.ContentLinks a{
+    text-decoration: none;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 600;
+}
+/*--circle About section-- */
+.her-cont{
+    display: flex;
+}
+
+.aboutSection {
+margin-top: 100px;
+  min-height: 100vh;
+  padding: 70px 90px;
+  background: linear-gradient(90deg, #ff7a18 0%, #f3b59b 100%);
+  position: relative;
+}
+
+.circle-wrapper {
+  position: absolute;
+  top: 60px;
+  left: 70px;
+  width: 180px;
+  height: 180px;
+}
+
+
+.circle-svg {
+  width: 100%;
+  height: 100%;
+  animation: rotate 14s linear infinite;
+}
+
+.circle-svg text {
+  font-size: 12px;
+  letter-spacing: 3px;
+  font-weight: 600;
+  text-transform: uppercase;
+  fill: #000;
+}
+
+
+.circle-image {
+  position: absolute;
+  width: 95px;
+  height: 95px;
+  background: #000;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.circle-image img {
+  width: 70%;
+  height: 70%;
+  border-radius: 50%;
+}
+
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.content {
+  margin-top: 180px;
+  max-width: 1100px;
+}
+
+.content h1 {
+  font-size: 52px;
+  font-weight: 800;
+  color: #1f2937;
+  line-height: 1.2;
+  margin-bottom: 30px;
+}
+
+.content p {
+  font-size: 18px;
+  line-height: 1.9;
+  color: #1f2937;
+  max-width: 760px;
+}
+/* --vide0 section-- */
+.VideoSection {
+  position: relative;
+}
+
+.VideoSection video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.VideoSection{
+    position: relative;
+}
+.videoCards {
+    position: absolute;
+
+}
+.videoCards {
+  position: absolute;
+  top: 0%;
+  right: 20px;
+  transform: translateY(-200%);
+  transform: translateX(-330%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  
+}
+
+.Card {
+  background: rgba(20, 20, 20, 0.9);
+  border-bottom-left-radius: 45%;
+  border-top-left-radius: 45%;
+  padding: 7px 40px;
+  width: 70px;
+  height: 70px;
+  color: #fff;
+  text-align: left;
+   
+}
+
+
+.Card h2 {
+  font-size: 15px;
+  font-weight: 500;
+  color: #f9d976;
+}
+
+.Card p {
+  font-size: 9px;
+  color: #e5e7eb;
+}
+/* scroller*/
+/*scrol bar*/
+
+.scrol-section {
+    background: #fff;
+    overflow: hidden;
+    width: 100%;
+    padding: 25px 0px;
+}
+.rr-sc {
+    width: 1150px;
+    margin: 0px auto;
+}
+
+.scrol-bar {
+    display: flex;
+    width: max-content;
+    animation: scrollText 20s linear infinite;
+   
+}
+
+/* Headings */
+.scrol-bar h2 {
+    color: #000;
+    font-size: 30px;
+    white-space: nowrap;
+    margin: 0;
+}
+
+.scrol-bar > div {
+    display: flex;
+    align-items: center;
+}
+
+
+.scrol-bar > div::after {
+    content: "•";
+    color: #000;
+    font-size: 30px;
+    margin: 0 20px;
+}
+
+
+.scrol-bar > div:last-child::after {
+    content: "";
+}
+
+/* Keyframes */
+@keyframes scrollText {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* Pause on hover (optional) */
+
+
+.itt:hover h2{
+    
+    transform: rotate(8deg);
+    transition: 0.4s ease-in;
+    
+}
+
+
+/* -------------------------commintment section---------------------- */
+.CommitmentSecton{
+  display: flex;
+  gap: 80px;
+  padding: 60px 80px;
+  background: linear-gradient(#eef6f9, #fbf2ec);
+}
+
+
+.CommitmentPart1{
+  width: 40%;
+}
+
+.CommitmentPart1 h2{
+  font-size: 42px;
+  margin-bottom: 20px;
+}
+
+.CommitmentPart1 p{
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+
+.CommitmentPart2{
+ width: 60%;
+}
+
+
+.part2Card{
+  display: flex;
+  align-items: center;
+  gap: 90px;
+  padding: 30px 0;
+  border-top: 1px solid #bbb;
+}
+
+
+.part2Card:first-child{
+  border-top: none;
+}
+
+
+.Archive{
+  display: flex;
+      
+  align-items: center;
+  gap: 30px;
+  min-width: 120px;
+}
+
+.Archive h2{
+  color: orange;
+  font-size: 22px;
+}
+
+.part2Card img{
+  width: 100px;
+  height: auto;
+}
+
+
+.Textpart2 h3{
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.Textpart2 p{
+  font-size: 16px;
+  line-height: 1.6;
+}
+/* --------------------------choose ? section----------------------- */
+.Choose {
+  padding: 50px;
+  background: #fff;
+}
+
+
+.Choose h2 {
+  text-align: center;
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 60px;
+  color: #1f2937;
+}
+
+.Choose h2 span {
+  color: #ff7a18;
+}
+
+.ChooseCards {
+  display: flex;
+  align-items: start;
+  justify-content: center;              
+  gap: 30px;
+  width: 100%;
+}
+
+
+.ChooseCard {
+  border: 2px solid #000;
+  border-radius: 14px;
+  padding: 26px;
+
+ 
+
+}
+
+.ChooseCard h3 {
+  color: #ff7a18;
+  font-size: 18px;
+  margin: 0;
+}
+
+.ChooseCard p {
+  font-size: 14px;
+  line-height: 1.75;
+  color: #000;
+}
+.boxx{
+    padding-bottom: 5px;
+}
+/* ------------------------------------roWSection----------------------------- */
+.LeadingSection {
+  background: linear-gradient(90deg, #ff7a18 0%, #e9b59a 100%);
+  padding: 100px 100px 150px 100px;
+  color: #1f2937;
+ display: flex;flex-direction: column;
+ justify-content: center;
+ align-items: center;
+}
+.LeadingSection p{
+    text-align: center;
+    width: 80%;
+    line-height: 1.8em;
+    font-size: 18px;
+}
+
+
+.LeadingSection > div:not(.rowPara) {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+
+.LeadingSection h2 {
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0;
+  
+}
+
+
+.white {
+  color: #ffffff;
+}
+
+.LeadingSection img {
+  width: 140px;
+  height: 52px;
+  object-fit: cover;
+  border-radius: 40px;
+}
+
+
+.SvgArrow {
+  width: 64px;
+  height: 40px;
+  background: #000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.SvgArrow i {
+  color: #ff7a18;
+  font-size: 28px;
+  transform: rotate(300deg);
+}
+
+
+
+.Row4 img:last-child {
+  width: 60px;
+  height: 60px;
+}
+
+
+.rowPara {
+  max-width: 900px;
+  margin: 60px auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rowPara p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #1f2937;
+  text-align: center;
+}
+.sunsvg{
+     animation: rotate 14s linear infinite;
+      filter: brightness(0) invert(1);
+}
+
+
+.play-outer {
+  width: 70px;
+  height: 70px;
+  background: #000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.play-inner {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: 1.5px solid #ff7a18;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.play-inner i {
+  color: #ff7a18;
+  font-size: 22px;
+  margin-left: 3px; 
+}
+
+/* --------------------------national section------------------------ */
+
+        .National {
+            background: #ffffff;
+            padding: 30px 30px 0px 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .NationalBox {
+            background: #ffffff;
+            max-width: 1200px;
+            border-radius: 16px;
+            padding: 40px 20px;
+        }
+
+        .NationalImages {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .NationalImages img {
+            height: 130px;
+            width: auto;
+            object-fit: contain;
+        }
+          .NationalImages img:nth-child(2){
+                      height: 200px;
+          } 
+
+          /* -----------------------------patnership-------------------- */
+
+          .Patnership {
+   padding: 30px;
+  text-align: center;
+ 
+}
+
+.Patnership > p {
+  font-size: 18px;
+  color: #1f2937;
+  margin-bottom: 10px;
+}
+
+.Patnership h3 {
+  font-size: 42px;
+  font-weight: 800;
+  color: #1f2937;
+  margin: 0;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+
+.PartnerContainer {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.patner {
+  width: 300px;
+  border: 2px solid #000;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+}
+
+
+.patner img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+}
+
+.patner p {
+  margin: 0;
+  padding: 18px 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #ff7a18;
+  text-align: center;
+}
+
+
+/* ------------------------review section------------------- */
+.ReviewSection {
+  padding: 80px 100px;
+  background: linear-gradient(90deg, #fdeee6 0%, #eeb08f 100%);
+  font-family: "Poppins", sans-serif;
+  color: #1f2937;
+}
+
+
+.smallTitle {
+  color: #ff7a18;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+
+.reviewHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.reviewHeader h2 {
+  font-size: 56px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.dots {
+  display: flex;
+  gap: 14px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background: #1f2937;
+  border-radius: 50%;
+}
+
+.dot.active {
+  width: 14px;
+  height: 14px;
+  background: #ff7a18;
+  box-shadow: 0 0 0 6px rgba(255,122,24,0.25);
+}
+
+.stars {
+  margin-top: 40px;
+}
+
+.stars i {
+  color: #F97216;
+  font-size: 22px;
+  margin-right: 6px;
+}
+
+
+.reviewText {
+  font-size: 28px;
+  font-weight: 500;
+  margin: 30px 0 40px;
+  max-width: 900px;
+}
+
+
+hr {
+  border: none;
+  height: 1px;
+  background: #ff7a18;
+  margin-bottom: 40px;
+}
+
+
+.reviewFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.reviewFooter h4 {
+  font-size: 22px;
+  margin: 0;
+}
+
+.role {
+  color: #ff7a18;
+  margin-top: 6px;
+}
+
+.quote i {
+  font-size: 90px;
+  color: #F97216;
+}
+
+/*footer*/
+
+.Footer-top {
+    padding: 30px 90px;
+    background-color: #222327;
+    color: #fff;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+    font-family: "Space Grotesk", sans-serif;
+}
+
+.addres img {
+    width: 150px;
+    height: 50px;
+}
+
+.footr h3 {
+    color: #E55F14;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+
+
+.footr p {
+    font-size: 16px;
+}
+
+.footr a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+}
+.Contact li :hover{
+    color: #E55F14;
+
+}
+
+.footr li {
+    margin-bottom: 10px;
+}
+
+.QuikLinks li {
+    margin-bottom: 20px;
+}
+.QuikLinks li :hover{
+    color: #E55F14;
+
+}
+
+
+ ul li {
+    list-style: none;
+}
+
+/* footer b0ttom*/
+.Footer-btm {
+    background: #222327;
+    padding: 60px 0;
+    display: flex;
+    justify-content: center;
+    color: #fff;
+}
+
+.NationalBox {
+    background: #ffffff;
+    width: 85%;
+    max-width: 1200px;
+    border-radius: 16px;
+    padding: 40px 20px;
+}
+
+.NationalImages {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.NationalImages img {
+    height: 100px;
+    width: auto;
+    object-fit: contain;
+}
+
+.Ecd {
+    color: #fff;
+    background: #222327;
+    padding: 30px;
+}
+
+
+.NationalImages img:hover{
+    transform: scale(1.2);
+
+}

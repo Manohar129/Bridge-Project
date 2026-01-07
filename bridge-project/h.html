@@ -2,67 +2,199 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Profile Card</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="../bridge-project/h.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <title>Document</title>
+<style>    
+.Service {
+  background: linear-gradient(120deg,#2b3f6b 0%,#1e2430 35%,#141414 70%,#000 100%);
+  padding: 80px 60px;
+  color: #fff;
+}
+
+
+.Solutions {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+
+.SS { width: 40%; }
+.SS p { font-size: 22px; }
+.SS h2 { font-size: 38px; }
+
+.UnlockPara {
+  width: 30%;
+  padding-left: 20px;
+  border-left: 3px solid #EFBB65;
+}
+
+.ViewB {
+  background: #3D4C65;
+  padding: 18px 40px;
+  border: none;
+}
+.ViewB a { color: #fff; text-decoration: none; }
+
+/* MAIN SECTION */
+.ITServices {
+  display: flex;
+  gap: 60px;
+  margin-top: 60px;
+}
+
+.ITImage { 
+    width: 40%;
+ }
+.ITImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.ITbPO { 
+    width: 60%;
+ }
+
+.opp {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  cursor: pointer;
+ 
+}
+
+.opp a {
+  font-size: 30px;
+  color: #fff;
+  text-decoration: none;
+}
+
+
+.iconBox {
+  position: relative;
+  width: 90px;
+  height: 50px;
+  overflow: hidden;
+}
+
+
+.iconBox span {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.4s ease;
+}
+
+.iconBox .num {
+  font-size: 28px;
+  font-weight: bold;
+  transform: translateY(0);
+}
+
+
+.iconBox .arrow {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg,#f9d976,#f39f86);
+  transform: translateY(100%);
+}
+/* HOVER EFFECT */
+.opp:hover .num {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+.opp:hover a {
+  color: #f9d976;
+}
+
+
+.opp:hover .arrow {
+  transform: translateY(0);
+  
+}
+
+</style>
 </head>
 <body>
-<div class="page-bg">
+<section class="Service">
 
-    <div class="card-viewport">
-        <div class="card-track">
-
-            <!-- ORIGINAL CARDS -->
-            <div class="profile-card">
-                <img src="../bridge-project/3iUoBkhcLTng2kzN4yWbd9.jpeg">
-                <div class="card-text">
-                    <img src="../bridge-project/card-logo-heathrow.webp" class="logo">
-                    <div class="text-info">
-                        <h3>Kuppadyuti Sengar</h3>
-                        <p>Group CEO – Anarock Group</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="profile-card">
-                <img src="../bridge-project/3iUoBkhcLTng2kzN4yWbd9.jpeg">
-                <div class="card-text">
-                    <img src="../bridge-project/card-logo-heathrow.webp" class="logo">
-                    <div class="text-info">
-                        <h3>Kuppadyuti Sengar</h3>
-                        <p>Group CEO – Anarock Group</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="profile-card">
-                <img src="../bridge-project/3iUoBkhcLTng2kzN4yWbd9.jpeg">
-                <div class="card-text">
-                    <img src="../bridge-project/card-logo-heathrow.webp" class="logo">
-                    <div class="text-info">
-                        <h3>Kuppadyuti Sengar</h3>
-                        <p>Group CEO – Anarock Group</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="profile-card">
-                <img src="../bridge-project/3iUoBkhcLTng2kzN4yWbd9.jpeg">
-                <div class="card-text">
-                    <img src="../bridge-project/card-logo-heathrow.webp" class="logo">
-                    <div class="text-info">
-                        <h3>Kuppadyuti Sengar</h3>
-                        <p>Group CEO – Anarock Group</p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+  <div class="Solutions">
+    <div class="SS">
+      <p>Services</p>
+      <h2>Solutions WE <strong>Provide</strong></h2>
     </div>
 
-</div>
+    <div class="UnlockPara">
+      <p>
+        Unlock your business potential with our innovative, SEO-optimized
+        solutions designed for success.
+      </p>
+    </div>
 
+    <div class="View">
+      <button class="ViewB">
+        <a href="#">All Services <i class="fa-solid fa-arrow-right"></i></a>
+      </button>
+    </div>
+  </div>
 
+  <section class="ITServices">
+
+    <div class="ITImage">
+      <img src="Sources/service-bg-h3.png" alt="">
+    </div>
+
+    <div class="ITbPO">
+
+      <div class="opp">
+        <a href="#">IT SERVICES</a>
+        <div class="iconBox">
+          <span class="num">01</span>
+          <span class="arrow"><i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+      </div>
+
+      <div class="opp">
+        <a href="#">BPO</a>
+        <div class="iconBox">
+          <span class="num">02</span>
+          <span class="arrow"><i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+      </div>
+
+      <div class="opp">
+        <a href="#">E-COMMERCE</a>
+        <div class="iconBox">
+          <span class="num">03</span>
+          <span class="arrow"><i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+      </div>
+
+      <div class="opp">
+        <a href="#">WEB<br>DEVELOPMENT</a>
+        <div class="iconBox">
+          <span class="num">04</span>
+          <span class="arrow"><i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+      </div>
+
+      <div class="opp">
+        <a href="#">AI SOLUTIONS</a>
+        <div class="iconBox">
+          <span class="num">05</span>
+          <span class="arrow"><i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</section>
 </body>
-
 </html>

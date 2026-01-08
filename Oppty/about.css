@@ -725,6 +725,50 @@ hr {
   color: #F97216;
 }
 
+/* befor footer*/
+.reach{
+    background: linear-gradient(110deg, #F97216 7%, #E8AA8C 66%)
+}
+.rec-h{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.gra-1 h5{
+    font-size: 35px;
+    font-family: 500;
+
+}
+
+.gra-1 p{
+    font-size: 55px;
+    font-size: 600;
+}
+
+.gra-2{
+    display: flex;
+   
+    gap: 60px;
+}
+
+.gra-2 button{
+    background-color: #2b2b2b;
+    color: #fdfbfb;
+    padding: 15px 30px;
+    border-radius: 20px;
+    
+}
+
+.gra-2 button:hover{
+    background-color: #fffefe;
+    color: #0c0c0c;
+    padding: 15px 30px;
+    border-radius: 20px;
+    
+}
+
+
 /*footer*/
 
 .Footer-top {

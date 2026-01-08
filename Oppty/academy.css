@@ -1,0 +1,342 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: "Space Grotesk", sans-serif;
+}
+body{
+    font-family: Space Grotes;
+}
+.head-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0px;
+    font-family: "Space Grotesk", sans-serif;
+}
+.head-logo img{
+    width: 150px;
+    height: 60px;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-bar ul{
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    c
+}
+.nav-bar a{
+    text-decoration: none;
+    color: #000;
+}
+
+.nav-bar ul li{
+    list-style: none;
+}
+
+.nav-bar :hover{
+    color: #E55F14;
+}
+
+.bcr{
+    background-color: #ec7733;
+    padding: 12px 20px ;
+    border-radius: 25px;
+    color: #1f1f1f;
+}
+
+/* BACK GROUND IMG*/
+
+
+.bag-img{
+    background-image:url(../Oppty/images/breadcrumb-bg.jpeg);
+    width: auto;
+    overflow: hidden;
+    object-fit: cover;
+    height: 300px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+}
+.img-bag h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 40px;
+    color: #fff;
+
+
+}
+
+.img-bag p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 17px;
+    color: #fff;
+    
+    
+
+}
+span{
+    margin: 20px;
+}
+
+/* bg img*/
+.academy-section{
+    padding: 80px 40px;
+}
+.academy-hero{
+    min-height: 100vh;
+    background: 
+        linear-gradient(rgba(16, 19, 22, 0.85), rgba(13, 17, 20, 0.85)),
+        url("../Oppty/images/career-detail-image-1.jpeg"); 
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding: 60px 80px;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    padding: 40px 20px;
+}
+
+/* CONTENT */
+.hero-content{
+    max-width: 900px;
+}
+
+/* HEADING */
+.hero-content h1{
+    font-size: 46px;
+    font-weight: 800;
+    margin-bottom: 40px;
+    line-height: 1.2;
+}
+
+.hero-content h1 span{
+    color: #E55F14; 
+}
+
+.hero-text p{
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 25px;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #eaeaea;
+}
+
+/* LEFT VERTICAL LINE */
+.hero-text p::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 3px;
+    height: 80%;
+    background: #f1c40f; 
+}
+/*course*/
+.crs-text h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+
+
+}
+.crs-text p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+
+/* logo*/
+/* COURSE CARD STYLE */
+
+.box{
+    width: 420px;
+    height: 200px;
+    padding: 25px;
+    background: #0e2a47;              
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.4s ease, border 0.4s ease;
+    cursor: pointer;
+}
+
+.box h3{
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    font-size: 32px;
+    color: #ffffff;
+    transition: transform 0.4s ease, color 0.4s ease;
+}
+
+
+.op-ig img{
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    width: 40px;
+    opacity: 0.5;
+    filter: brightness(0) invert(1);
+    animation: spin 4s linear infinite;  
+}
+
+/* TITLE */
+.box h2{
+    position: absolute;
+    top: 80px;
+    left: 25px;
+    font-size: 20px;
+    color: #ffffff;
+    transition: color 0.4s ease;
+}
+
+/* PARAGRAPH (hidden before hover) */
+.box p{
+    position: absolute;
+    bottom: -50px;
+    left: 25px;
+    right: 25px;
+    font-size: 14px;
+    color: #555;
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* =========================
+   HOVER EFFECTS
+========================= */
+
+.box:hover{
+    background: #ffffff;
+    border: 1px solid #e6c87a;
+}
+
+.box:hover h2{
+    transform: translateY(15px);
+    color: #0e2a47;
+}
+
+.box:hover h3{
+    color: #0e2a47;
+}
+
+.box:hover p{
+    transform: translateY(-70px);
+    opacity: 1;
+}
+
+.box:hover .op-ig img{
+    filter: none;
+    opacity: 0.7;
+}
+
+/* ROTATION KEYFRAMES */
+
+@keyframes spin{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+
+/* 2x2 flex*/
+
+.ttlt h2{
+    display: flex;
+    justify-content: center;
+    font-size: 33px;
+    padding: 20px;
+}
+.ttlt p{
+    display: flex;
+    justify-content: center;
+    color: #4a4a4a;
+    font-size: 1.2em;
+  
+    
+
+}
+
+.courses{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 60px 80px;
+    background: #f7f7f7;
+    font-family: Arial, sans-serif;
+}
+
+.course-card{
+    width: 420px;
+    background: #ffffff;
+    padding: 35px 30px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+/* TITLE */
+.course-title{
+    font-size: 28px;
+    color: #d35400;
+    margin-bottom: 6px;
+}
+
+/* SUBTITLE */
+.course-sub{
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* LIST */
+.course-list{
+    list-style: none;
+    padding: 0;
+    margin: 0 0 25px;
+}
+
+.course-list li{
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 22px;
+}
+
+.course-list li::before{
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #e67e22;
+    font-weight: bold;
+}
+
+/* BUTTON */
+.enroll-btn{
+    width: 100%;
+    padding: 14px;
+    background: #E55F14;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.enroll-btn:hover{
+    background: #cf6d17;
+}

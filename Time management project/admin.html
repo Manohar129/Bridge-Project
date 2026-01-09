@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../Time management project/admin.js"></script>
+    <link rel="stylesheet" href="../Time management project/admin.css">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+
+<div class="page">
+    <div class="login-card">
+        <a href="#" class="back">← Back to Portal Selection</a>
+
+        <h2>Admin Login</h2>
+        <p class="subtitle">Administrative Access</p>
+
+        <!-- Email -->
+        <div class="input-box">
+            <i class="fa-solid fa-user"></i>
+            <input type="text" id="adminId" placeholder="admin@oppty.in">
+        </div>
+
+        <!-- Password -->
+        <div class="input-box">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" id="password" placeholder="Password">
+            <i class="fa-solid fa-eye eye" id="eye"></i>
+        </div>
+
+        <p class="error" id="errorMsg"></p>
+
+        <button onclick="validate()">Login to Admin Panel</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+    

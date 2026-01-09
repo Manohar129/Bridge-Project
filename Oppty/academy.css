@@ -44,6 +44,39 @@ body{
     border-radius: 25px;
     color: #1f1f1f;
 }
+.nav-bar ul li{
+    position: relative;
+}
+
+.nav-bar ul li ul{
+    position: absolute;
+    top: 100%;               
+    left: 0;
+    background: #ffffff;
+    padding: 10px 0;
+    display: none;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    z-index: 999;
+}
+
+.nav-bar ul li:hover > ul{
+    display: block;
+}
+
+
+.nav-bar ul li ul li{
+    padding: 8px 20px;
+    white-space: nowrap;
+}
+
+.nav-bar ul li ul li a{
+    color: #000;
+    display: block;
+}
+
+.nav-bar ul li ul li a:hover{
+    color: #E55F14;
+}
 
 /* BACK GROUND IMG*/
 
@@ -194,7 +227,7 @@ span{
 /* TITLE */
 .box h2{
     position: absolute;
-    top: 80px;
+    top: 150px;
     left: 25px;
     font-size: 20px;
     color: #ffffff;
@@ -219,11 +252,11 @@ span{
 
 .box:hover{
     background: #ffffff;
-    border: 1px solid #e6c87a;
+    border: 2px solid #dba10e;
 }
 
 .box:hover h2{
-    transform: translateY(15px);
+    transform: translateY(-25px);
     color: #0e2a47;
 }
 
@@ -250,6 +283,39 @@ span{
     to{
         transform: rotate(360deg);
     }
+}
+
+.box{
+    margin-bottom: 24px;  
+}
+
+/* base width */
+.box{
+    width: 420px;
+    padding: 20px;
+    margin-left: 100px;
+    margin-top: 40px;
+}
+
+/* GAP BETWEEN BOXES */
+.box{
+    margin-bottom: 24px;   /* vertical gap */
+}
+
+.box{
+    width: 420px;
+}
+
+/* 1st box → MOST WIDTH */
+.box:nth-child(1){
+    width: 580px;   
+}
+
+.box:nth-child(3){
+    width: 360px;
+}
+.box:nth-child(4){
+    width: 520px;
 }
 
 
@@ -338,5 +404,105 @@ span{
 }
 
 .enroll-btn:hover{
-    background: #cf6d17;
+    background: #D4AC0D;
+    color: yellow;
+}
+/*footer*/
+
+.Footer-top {
+    padding: 30px 90px;
+    background-color: #222327;
+    color: #fff;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+    font-family: "Space Grotesk", sans-serif;
+}
+
+.addres img {
+    width: 150px;
+    height: 50px;
+}
+
+.footr h3 {
+    color: #E55F14;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+
+
+.footr p {
+    font-size: 16px;
+}
+
+.footr a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+}
+.Contact li :hover{
+    color: #E55F14;
+
+}
+
+.footr li {
+    margin-bottom: 10px;
+}
+
+.QuikLinks li {
+    margin-bottom: 20px;
+}
+.QuikLinks li :hover{
+    color: #E55F14;
+
+}
+
+
+ ul li {
+    list-style: none;
+}
+
+/* footer b0ttom*/
+.Footer-btm {
+    background: #222327;
+    padding: 60px 0;
+    display: flex;
+    justify-content: center;
+    color: #fff;
+}
+
+.NationalBox {
+    background: #ffffff;
+    width: 85%;
+    max-width: 1200px;
+    border-radius: 16px;
+    padding: 40px 20px;
+}
+
+.NationalImages {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.NationalImages img {
+    height: 100px;
+    width: auto;
+    object-fit: contain;
+}
+
+.Ecd {
+    color: #fff;
+    background: #222327;
+    padding: 30px;
+}
+
+
+.NationalImages img:hover{
+    transform: scale(1.2);
+
 }

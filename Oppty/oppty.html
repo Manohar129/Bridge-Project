@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Oppty/oppty.css">
+    <script src="../Oppty/oppty.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <title>Oppty</title>
 </head>
@@ -15,13 +17,19 @@
             </div>
             <nav class="nav-bar">
                 <ul>
-                    <li><a href="">Home</a></li>
-                    <li><a href="">About us</a></li>
-                    <li><a href="">Our Services</a></li>
-                    <li><a href="">Contact us</a></li>
-                    <li><a href="">Careers</a></li>
-                    <li><a href="" class="bcr">Academy</a></li>
-                    <li><a href="" class="bcr">Training Partner</a></li>
+                    <li><a href="../Oppty/oppty.html">Home</a></li>
+                    <li> <a href="../Oppty/about.html">About us</a></li>
+                    <li>
+                        <a href="../Oppty/our services.html">Our Services</a>
+
+                        <ul class="">
+                            <li><a href="../Oppty/Solutions.html">solutions</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../Oppty/contact.html">Contact us</a></li>
+                    <li><a href="../Oppty/career.html">Careers</a></li>
+                    <li><a href="../Oppty/academy.html" class="bcr">Academy</a></li>
+                    <li><a href="../Oppty/oppty.html" class="bcr">Training Partner</a></li>
                     <li><i class="fa-solid fa-phone"></i><a href="">+91 9491209900</a></li>
                 </ul>
 
@@ -145,7 +153,7 @@
             </div>
             
         </div>
-        <button > follow us on linkdin</button>
+        <button >follow us on linkdin</button>
 
         </div>
         
@@ -159,7 +167,7 @@
             </div>
             <div class="provd-box2">
                 <p>Unlock your business potential with our innovative, SEO-optimized solutions designed for success.</p>
-                <a href="">view all Services</a>
+                <a href="" class="blt">view all Services <i class="fa-solid fa-arrow-right"></i></a>
 
             </div>
 
@@ -226,18 +234,71 @@
             <p>Our Clients reviews</p>
 
         </div>
-        <div class="flex-4box">
-            <div class="box-flex1">
-                <h2>Vikram Singh, Operations Manager</h2>
-                <p>Oppty’s BPO services streamlined our operations, letting us focus on growth.</p>
-            </div>
-            <div class="box-flex1">
-                <h2>Anjali Sharma</h2>
-                <p>Oppty’s e-commerce platform increased our online sales by 45% in just three months!</p>
+        <div class="swiper mySwiper">
+<div class="swiper mySwiper">
 
-            </div>
+    <!-- Swiper wrapper -->
+    <div class="swiper-wrapper">
 
+        <!-- Slide 1 -->
+        <div class="swiper-slide">
+            <div class="flex-4box">
+                <div class="box-flex1">
+                    <h2>Vikram Singh, Operations Manager</h2>
+                    <p>Oppty’s BPO services streamlined our operations, letting us focus on growth.</p>
+                </div>
+                <div class="box-flex1">
+                    <h2>Anjali Sharma</h2>
+                    <p>Oppty’s e-commerce platform increased our online sales by 45% in just three months!</p>
+                </div>
+            </div>
         </div>
+
+        <!-- Slide 2 -->
+        <div class="swiper-slide">
+            <div class="flex-4box">
+                <div class="box-flex1">
+                    <h2>Rahul Verma</h2>
+                    <p>Excellent support and professional service.</p>
+                </div>
+                <div class="box-flex1">
+                    <h2>Pooja Nair</h2>
+                    <p>Very happy with the quality and response time.</p>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div class="flex-4box">
+                <div class="box-flex1">
+                    <h2>Rahul Verma</h2>
+                    <p>Excellent support and professional service.</p>
+                </div>
+                <div class="box-flex1">
+                    <h2>Pooja Nair</h2>
+                    <p>Very happy with the quality and response time.</p>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div class="flex-4box">
+                <div class="box-flex1">
+                    <h2>Rahul Verma</h2>
+                    <p>Excellent support and professional service.</p>
+                </div>
+                <div class="box-flex1">
+                    <h2>Pooja Nair</h2>
+                    <p>Very happy with the quality and response time.</p>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    <div class="swiper-pagination"></div>
+</div>
+
+
         <div class="buttom-test">
             <h3>We are proud to partner with industry leaders.</h3>
             <p>Our Valued Clients</p>
@@ -311,6 +372,19 @@
         </section>
     </footer>
     
+<script>
+const swiper = new Swiper(".mySwiper", {
+    slidesPerView: 1,        // one slide = two boxes
+    spaceBetween: 30,
+    loop: true,
+
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+});
+</script>
+
     
 </body>
 </html>

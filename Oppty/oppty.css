@@ -1,6 +1,7 @@
 *{
     margin: 0px;
     padding: 0px;
+    font-family: "Space Grotesk", sans-serif;
 }
 body{
     font-family: Space Grotes;
@@ -43,6 +44,40 @@ body{
     border-radius: 25px;
     color: #1f1f1f;
 }
+.nav-bar ul li{
+    position: relative;
+}
+
+.nav-bar ul li ul{
+    position: absolute;
+    top: 100%;               
+    left: 0;
+    background: #ffffff;
+    padding: 10px 0;
+    display: none;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    z-index: 999;
+}
+
+.nav-bar ul li:hover > ul{
+    display: block;
+}
+
+
+.nav-bar ul li ul li{
+    padding: 8px 20px;
+    white-space: nowrap;
+}
+
+.nav-bar ul li ul li a{
+    color: #000;
+    display: block;
+}
+
+.nav-bar ul li ul li a:hover{
+    color: #E55F14;
+}
+
 
 /* hero content -1*/
 
@@ -50,7 +85,7 @@ body{
     display: flex;
     justify-content: space-around;
     align-items:center;
-    background-image: url(../Oppty/images/home-3-slider-bg.jpeg);
+    background: linear-gradient(rgba(16, 19, 22, 0.85), rgba(13, 17, 20, 0.85)), url(../Oppty/images/home-3-slider-bg.jpeg);
     height: 100vh;
     overflow: hidden;
     object-fit: cover;
@@ -156,7 +191,7 @@ button{
     align-items: center;
     margin-left: 30%;
     line-height: 40px;
-    color: #ffffff;
+    color: #eeeaea;
 }
 
 .grid-boxi{
@@ -170,18 +205,21 @@ button{
 .grid-boxi i{
     font-size: 55px;
     padding-bottom: 30px;
+    color: #fff;
     
 }
 
 .grid-inside h4{
     font-size: 25px;
     padding-bottom: 30px;
+    color: #fff;
    
 }
 
 .grid-inside p{
     font-size: 20px;
     padding-bottom: 30px;
+    color: #fff;
    
 }
 
@@ -202,7 +240,7 @@ button{
 }
 .b-im-container{
  
-    background-image: url(../Oppty/images/career-detail-image-1.jpeg);
+    background:linear-gradient(rgba(16, 19, 22, 0.85), rgba(13, 17, 20, 0.85)) , url(../Oppty/images/career-detail-image-1.jpeg);
     object-fit: cover;
     width: 100%;
     background-repeat: no-repeat;
@@ -234,7 +272,7 @@ button{
     color: #ffffff;
 }
 .provd-box1 p{
- color: #ffffff;
+    color: #ffffff;
 }
 .provd-box2{
     display: flex;
@@ -258,6 +296,12 @@ button{
     background-color: #273A69;
     color: #ffffff;
     border-radius: 20px;
+}
+.provd-box2:hover a{
+    background-color: #E8AA8C;
+}
+.blt:hover a{
+    background-color: #E8AA8C;
 }
 
 /*flex-3*/
@@ -401,6 +445,7 @@ button{
     background: #1a1a1a;
     box-shadow: 0 0 2px 2px #007bff; /* blue shadow */
     border-radius: 10px;
+    margin: 60px 0px;
 }
 
 /* Name */
@@ -429,10 +474,41 @@ button{
     font-size: 16px;
     line-height: 1.6;
 }
+/* slider wrapper */
+.slider-wrapper{
+    overflow: hidden;
+    width: 100%;
+}
+
+/* enable smooth sliding */
+.flex-4box{
+    transition: transform 0.6s ease;
+    flex-wrap: nowrap;   /* keep one row */
+}
+/* move pagination below boxes */
+.swiper-pagination{
+    position: relative;      /* not absolute */
+    margin-top: 30px;        /* space below boxes */
+    text-align: center;
+}
+
+/* pagination dots */
+.swiper-pagination-bullet{
+    width: 10px;
+    height: 10px;
+    background: #ccc;
+    opacity: 1;
+    margin: 0 6px;
+}
+
+/* active dot */
+.swiper-pagination-bullet-active{
+    background: #e55f14;     /* orange active */
+}
 
 .buttom-test h3{
     color: #fff;
-    margin-top: 50px;
+    margin-top: 10px;
     font-size: 20px;
     margin-left: 35%;
 }

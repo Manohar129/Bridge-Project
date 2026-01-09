@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+    <title>Document</title>
+    <style>
+        /* Flex boxes side by side */
+.flex-4box {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Testimonial box */
+.box-flex1 {
+    width: 500px;
+    padding: 25px;
+    background: #1a1a1a;
+    box-shadow: 0 0 2px 2px #007bff; /* blue shadow */
+    border-radius: 10px;
+}
+
+/* Name */
+.box-flex1 h2 {
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.box-flex1 h2::after {
+    content: "★★★★★";
+    display: block;
+    font-size: 16px;
+    color: gold;
+    margin-top: 6px;
+}
+
+.box-flex1:hover h2 {
+    color: orange;
+}
+
+/* Text */
+.box-flex1 p {
+    color: #ccc;
+    font-size: 16px;
+    line-height: 1.6;
+}
+/* slider wrapper */
+.slider-wrapper{
+    overflow: hidden;
+    width: 100%;
+}
+
+/* enable smooth sliding */
+.flex-4box{
+    transition: transform 0.6s ease;
+    flex-wrap: nowrap;   /* keep one row */
+}
+/* move pagination below boxes */
+.swiper-pagination{
+    position: relative;      /* not absolute */
+    margin-top: 30px;        /* space below boxes */
+    text-align: center;
+}
+
+/* pagination dots */
+.swiper-pagination-bullet{
+    width: 10px;
+    height: 10px;
+    background: #ccc;
+    opacity: 1;
+    margin: 0 6px;
+}
+
+/* active dot */
+.swiper-pagination-bullet-active{
+    background: #e55f14;     /* orange active */
+}
+
+
+    </style>
+</head>
+<body>
+    <!-- Swiper container -->
+<div class="swiper mySwiper">
+
+    <!-- Swiper wrapper -->
+    <div class="swiper-wrapper">
+
+        <!-- Slide 1 -->
+        <div class="swiper-slide">
+            <div class="flex-4box">
+                <div class="box-flex1">
+                    <h2>Vikram Singh, Operations Manager</h2>
+                    <p>Oppty’s BPO services streamlined our operations, letting us focus on growth.</p>
+                </div>
+                <div class="box-flex1">
+                    <h2>Anjali Sharma</h2>
+                    <p>Oppty’s e-commerce platform increased our online sales by 45% in just three months!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="swiper-slide">
+            <div class="flex-4box">
+                <div class="box-flex1">
+                    <h2>Rahul Verma</h2>
+                    <p>Excellent support and professional service.</p>
+                </div>
+                <div class="box-flex1">
+                    <h2>Pooja Nair</h2>
+                    <p>Very happy with the quality and response time.</p>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div class="flex-4box">
+                <div class="box-flex1">
+                    <h2>Rahul Verma</h2>
+                    <p>Excellent support and professional service.</p>
+                </div>
+                <div class="box-flex1">
+                    <h2>Pooja Nair</h2>
+                    <p>Very happy with the quality and response time.</p>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div class="flex-4box">
+                <div class="box-flex1">
+                    <h2>Rahul Verma</h2>
+                    <p>Excellent support and professional service.</p>
+                </div>
+                <div class="box-flex1">
+                    <h2>Pooja Nair</h2>
+                    <p>Very happy with the quality and response time.</p>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <!-- Optional controls -->
+    <div class="swiper-pagination"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+const swiper = new Swiper(".mySwiper", {
+    slidesPerView: 1,        // one slide = two boxes
+    spaceBetween: 30,
+    loop: true,
+
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+});
+</script>
+
+        
+    
+</body>
+</html>

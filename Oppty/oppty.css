@@ -487,8 +487,8 @@ button{
 }
 /* move pagination below boxes */
 .swiper-pagination{
-    position: relative;      /* not absolute */
-    margin-top: 30px;        /* space below boxes */
+    position: relative;      
+    margin-top: 30px;        
     text-align: center;
 }
 

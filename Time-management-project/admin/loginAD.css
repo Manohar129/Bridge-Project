@@ -8,7 +8,7 @@
 /* Light Mode */
 body {
     height: 100vh;
-    background: linear-gradient(135deg, #6a7cf3, #7b4bb7);
+    background: linear-gradient(135deg, #cde401, #b9abab);
 }
 
 /* Dark Mode */
@@ -23,7 +23,7 @@ body.dark {
     align-items: center;
 }
 
-.login-card {
+.login-card { 
     background: #fff;
     width: 360px;
     padding: 30px;

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Break Management Portal</title>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; font-family: "Segoe UI", sans-serif; }
+        
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #020617, #0f766e, #22d3ee);
+            display: flex; justify-content: center; align-items: center; color: #fff;
+        }
+
+        .wrapper { width: 90%; max-width: 800px; text-align: center; }
+
+        .header h1 { font-size: 34px; margin-bottom: 8px; }
+        .header p { opacity: 0.85; margin-bottom: 50px; }
+
+        .portal-box { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; }
+
+        .portal-card {
+            width: 320px; padding: 35px 30px; border-radius: 18px;
+            background: rgba(255,255,255,0.1); backdrop-filter: blur(14px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3); transition: 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .portal-card:hover { transform: translateY(-10px); background: rgba(255,255,255,0.18); }
+
+        .portal-icon { font-size: 50px; margin-bottom: 18px; }
+        .portal-card h2 { margin-bottom: 10px; font-size: 22px; }
+        .portal-card p { font-size: 14px; opacity: 0.8; margin-bottom: 25px; min-height: 40px; }
+
+        .portal-btn {
+            width: 100%; padding: 12px; border: none; border-radius: 30px;
+            font-size: 15px; cursor: pointer; font-weight: bold; transition: 0.2s;
+        }
+
+        .admin-btn { background: linear-gradient(135deg, #38bdf8, #0ea5e9); color: #fff; }
+        .user-btn { background: linear-gradient(135deg, #4ade80, #22c55e); color: #fff; }
+
+        .portal-btn:active { transform: scale(0.96); }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="header">
+        <h1>Oppty Break System</h1>
+        <p>Access your workstation to manage activity</p>
+    </div>
+
+    <div class="portal-box">
+        <div class="portal-card">
+            <div class="portal-icon">🛡️</div>
+            <h2>Admin Portal</h2>
+            <p>Control team status, reset stats, and monitor live breaks.</p>
+            <button class="portal-btn admin-btn" onclick="goTo('../admin/loginAD.html')">Login as Admin</button>
+        </div>
+
+        <div class="portal-card">
+            <div class="portal-icon">👨‍💻</div>
+            <h2>User Portal</h2>
+            <p>Clock in for lunch or regular breaks and view coworker status.</p>
+            <button class="portal-btn user-btn" onclick="goTo('../user/loginuser.html')">Login as User</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function goTo(page) {
+        window.location.href = page;
+    }
+</script>
+
+</body>
+</html>

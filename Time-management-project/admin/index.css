@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #cbdb36;
+}
+
+.navbar {
+    background: white;
+    padding: 12px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-left {
+    display: flex; 
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-left img {
+    width: 40px;
+}
+
+.nav-left small {
+    font-size: 12px;
+    color: #555;
+}
+
+.nav-right {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.logout {
+    background: #ef4444;
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    cursor: pointer;
+}
+
+.main {
+    display: flex;
+    gap: 20px;
+    width: 95%;
+    margin: 20px auto;
+}
+
+.left {
+    flex: 3;
+}
+
+.right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.card input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.add-btn {
+    margin-top: 10px;
+    padding: 10px;
+    background: #284a94;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.add-btn:hover {
+    background: #1d4ed8;
+}
+
+.stat {
+    background: linear-gradient(to right, #f8f8f5, #fdfdfd);
+    color: rgb(19, 19, 19);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+}
+
+.edit-btn {
+    background: #22c55e;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.delete-btn {
+    background: #ef4444;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.edit-btn:hover {
+    background: #16a34a;
+}
+
+.delete-btn:hover {
+    background: #dc2626;
+}
+
+.online {
+    color: green;
+}
+
+.offline {
+    color: red;
+}

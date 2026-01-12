@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppty Break Management System</title>
+    <link rel="stylesheet" href="../admin/index.css">
+</head>
+<body>
+
+<div class="navbar">
+    <div class="nav-left">
+        <img src="../img/oppty.png" alt="Oppty Logo">
+        <div>
+            <h3>Oppty Admin Portal</h3>
+            <small>Oppty Break Management System</small>
+        </div>
+    </div>
+
+    <div class="nav-right">
+        <span class="user"></span>
+        <button class="logout">Logout</button>
+    </div> 
+</div>
+
+<div class="main">
+    <div class="left">
+        <div class="card">
+            <h4 id="form-heading">Add User</h4>
+            <input id="email" type="email" placeholder="Email (@oppty.in)">
+            <input id="username" type="text" placeholder="Username">
+            <input id="password" type="password" placeholder="Password">
+            <div style="display: flex; gap: 5px;">
+                <button class="add-btn" id="submit-btn" onclick="saveUser()">Add User</button>
+                <button id="cancel-btn" style="display: none; background: #999898; color: white;" onclick="cancelEdit()">Cancel</button>
+            </div>
+        </div>
+
+        <div style="margin: 20px 0; display:flex; gap:10px;">
+            <select id="statusFilter" onchange="applyFilter()" style="padding: 5px; border-radius: 4px;">
+                <option value="all">All Users</option>
+                <option value="active">Active</option>
+                <option value="break">On Break</option>
+            </select>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search by name or email"
+                onkeyup="applyFilter()"
+                style="flex-grow: 1; padding: 5px; border-radius: 4px; border: 1px solid #ccc;"
+            >
+        </div>
+
+        <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                <h4 style="margin: 0;">User Management</h4>
+                <button onclick="downloadCSV()" style="background-color: #28a745; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer; font-weight: bold;">
+                    Download CSV
+                </button>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Email</th>
+                        <th>Username</th>
+                        <th>Status</th>
+                        <th>Lunch</th>
+                        <th>Regular</th>
+                        <th>Total</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="userTable"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="right">
+        <div class="stat">
+            <p>Total Users</p>
+            <h1 id="totalUsers">0</h1>
+        </div>
+        <div class="stat">
+            <p>Active Users</p>
+            <h1 id="activeUsers">0</h1>
+        </div>
+        <div class="stat">
+            <p>Offline Users</p>
+            <h1 id="offlineUsers">0</h1>
+        </div>
+    </div>
+</div>
+
+<script src="../admin/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,590 @@
+
+:root {
+    --oppty-orange: #ec7733;
+    --dark-text: #1f1f1f;
+}
+
+* {
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: "Space Grotesk", sans-serif;
+}
+
+
+.head-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px; /* Adjusted padding for better edge spacing */
+    font-family: "Space Grotesk", sans-serif;
+    
+    /* Sticky Logic */
+    position: sticky;
+    top: 0;
+    background-color: #ffffff; /* Ensures the nav isn't transparent over text */
+    z-index: 1000;             /* Keeps the nav above all other elements */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Optional: adds depth when scrolling */
+}
+.head-logo img{
+    width: 130px;
+    height: 50px;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-bar ul{
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    c
+}
+.nav-bar a{
+    text-decoration: none;
+    color: #000;
+}
+
+.nav-bar ul li{
+    list-style: none;
+}
+
+.nav-bar :hover{
+    color: #E55F14;
+}
+
+.bcr{
+    background-color: #ec7733;
+    padding: 12px 20px ;
+    border-radius: 25px;
+    color: #1f1f1f;
+}
+.nav-bar ul li{
+    position: relative;
+}
+
+.nav-bar ul li ul{
+    position: absolute;
+    top: 100%;               
+    left: 0;
+    background: #ffffff;
+    
+    display: none;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    z-index: 999;
+}
+
+.nav-bar ul li:hover > ul{
+    display: block;
+}
+
+
+.nav-bar ul li ul li{
+    padding: 8px 20px;
+    white-space: nowrap;
+}
+
+.nav-bar ul li ul li a{
+    color: #000;
+    display: block;
+}
+
+.nav-bar ul li ul li a:hover{
+    color: #E55F14;
+}
+
+
+/* --- Hero Slider --- */
+.hero-slider {
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 1s ease-in-out; /* Smooth transition */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.hero-overlay {
+    background: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: 100%;
+    display: flex; 
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    padding: 20px;
+}
+.hero-overlay h1{
+    font-size: 40px;
+    font-weight: 600px;
+}
+/* Container Styling */
+.services-wrapper {
+    padding: 100px 8%;
+    background-color: #050505; /* Deep dark theme for maximum contrast */
+    text-align: center;
+}
+
+.section-title {
+    color: #ffffff;
+    font-size: 42px;
+    margin-bottom: 60px;
+    letter-spacing: 2px;
+}
+
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    perspective: 1000px; 
+}
+
+/* The Creative Card */
+.service-card {
+    position: relative;
+    background: #111;
+    padding: 60px 40px;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    text-align: left;
+    cursor: pointer;
+}
+
+/* Animated Border Beam on Hover */
+.service-card::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+        transparent, 
+        transparent, 
+        transparent, 
+        #ec7733 /* Your Brand Orange */
+    );
+    animation: rotate 4s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.service-card:hover::before {
+    opacity: 1;
+}
+
+.service-card::after {
+    content: "";
+    position: absolute;
+    inset: 2px; /* Border thickness */
+    background: #111;
+    border-radius: 22px;
+    z-index: 1;
+}
+
+@keyframes rotate {
+    100% { transform: rotate(360deg); }
+}
+
+.service-number, h3, p, .read-more {
+    position: relative;
+    z-index: 2;
+}
+
+/* Typography & Visuals */
+.service-number {
+    font-size: 60px;
+    font-weight: 800;
+    color: rgba(236, 119, 51, 0.1);
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: 0.5s;
+}
+
+.service-card:hover .service-number {
+    color: rgba(236, 119, 51, 0.3);
+    transform: translateY(-10px);
+}
+
+.service-card h3 {
+    color: #fff;
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+.service-card p {
+    color: #aaa;
+    line-height: 1.7;
+    margin-bottom: 30px;
+    font-size: 16px;
+}
+
+.read-more {
+    color: #ec7733;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+    display: inline-block;
+}
+
+.service-card:hover {
+    transform: translateY(-15px) rotateX(5deg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    border-color: rgba(236, 119, 51, 0.5);
+}
+/* Stats Section with Advanced Styling */
+.stats-section {
+    background: linear-gradient(135deg, #ec7733 0%, #d6662a 100%);
+    padding: 80px 8%;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background decorative circles */
+.stats-section::before {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    top: -100px;
+    left: -100px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.stat-item {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    padding: 40px 20px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.stat-number {
+    font-size: 56px;
+    font-weight: 800;
+    color: #ffffff;
+    display: block;
+    margin-bottom: 5px;
+    font-variant-numeric: tabular-nums; /* Prevents text jumping while counting */
+}
+
+.stat-label {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+
+.creative-solutions {
+    padding: 100px 8%;
+    background: #0a0a0a; /* Dark sleek background */
+    color: #fff;
+}
+
+.solutions-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+/* Featured Side */
+.featured-solution {
+    position: relative;
+    border-radius: 30px;
+    overflow: hidden;
+    height: 600px;
+    /* This creates a creative slanted edge */
+    clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 95%);
+    transition: clip-path 0.5s ease;
+}
+
+.featured-solution:hover {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.featured-image-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.featured-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: 0.5s;
+}
+
+.featured-solution:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.1);
+}
+
+.featured-overlay {
+    position: absolute;
+    bottom: 0; left: 0;
+    padding: 60px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+    width: 100%;
+}
+
+/* Glow Button Styling */
+.glow-btn {
+    padding: 12px 30px;
+    background: #ec7733;
+    border: none;
+    color: white;
+    border-radius: 50px;
+    margin-top: 20px;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(236, 119, 51, 0.4);
+    transition: 0.3s;
+}
+
+.glow-btn:hover {
+    box-shadow: 0 0 30px rgba(236, 119, 51, 0.8);
+    transform: scale(1.05);
+}
+
+/* Mini Grid Side */
+.solutions-mini-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.mini-tile {
+    background: #1a1a1a;
+    height: 250px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #333;
+    transition: 0.4s;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Creative Hover Background Reveal */
+.mini-tile::before {
+    content: '';
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    width: 100%; 
+    height: 100%;
+    background: var(--accent);
+    transition: 0.4s;
+    z-index: 1;
+}
+
+.mini-tile:hover::before {
+    top: 0;
+}
+
+.tile-inner {
+    position: relative;
+    z-index: 2;
+}
+
+.mini-tile h3 { 
+    font-size: 22px; 
+    margin-bottom: 10px;
+}
+.mini-tile p { 
+    font-size: 14px; 
+    opacity: 0.7; 
+    transition: 0.3s;
+}
+
+.mini-tile:hover p { 
+    opacity: 1; 
+}
+
+.testimonials-section {
+    padding: 100px 8%;
+    background: #fdfdfd;
+    text-align: center;
+    overflow: hidden;
+}
+
+.testimonial-header h2 {
+    font-size: 40px;
+    margin-bottom: 50px;
+    color: #1f1f1f;
+}
+
+.testimonial-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    perspective: 1000px; /* Essential for 3D depth */
+    margin-bottom: 40px;
+}
+
+.testi-card {
+    background: #fff;
+    padding: 50px 40px;
+    border-radius: 25px;
+    width: 400px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+    opacity: 0.6;
+    transform: scale(0.9) rotateY(10deg);
+}
+
+/* The Active Featured Card */
+.testi-card.active {
+    opacity: 1;
+    transform: scale(1.05) rotateY(0deg);
+    box-shadow: 0 25px 50px rgba(236, 119, 51, 0.15);
+    border-color: #ec7733;
+    z-index: 2;
+}
+
+.quote-icon {
+    font-size: 80px;
+    color: #ec7733;
+    opacity: 0.2;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-family: serif;
+}
+
+.testi-text {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.client-details h4 {
+    font-size: 20px;
+    color: #1f1f1f;
+    margin-bottom: 5px;
+}
+
+.client-details span {
+    color: #ec7733;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* Dots Styling */
+.testi-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background: #ddd;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.dot.active {
+    background: #ec7733;
+    width: 30px;
+    border-radius: 10px;
+}
+
+.client-marquee {
+    padding: 80px 0;
+    background: #fff;
+    overflow: hidden; /* Hide the logos moving outside the screen */
+    border-top: 1px solid #f0f0f0;
+}
+
+.marquee-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.marquee-title h3 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #999;
+}
+
+.marquee-container {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+/* The actual moving strip */
+.marquee-content {
+    display: flex;
+    width: calc(250px * 12); 
+    animation: scroll 30s linear infinite;
+}
+
+.marquee-content img {
+    width: 250px;
+    height: 120px;
+    margin: 0 40px;
+    object-fit: contain;
+    filter: grayscale(100%); 
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+
+.marquee-content img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* The Loop Animation */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%); 
+    }
+}
+
+
+.marquee-container:hover .marquee-content {
+    animation-play-state: paused;
+}

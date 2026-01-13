@@ -165,6 +165,7 @@ document.addEventListener("DOMContentLoaded", function () {
             window.location.href = "loginUser.html";
         }
     };
+    
 
     setInterval(updateUI, 2000);
     

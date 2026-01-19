@@ -10,34 +10,36 @@
 </head>
 <body>
     <header class="head-section">
-        <div class="head-container">
-            <div class="head-logo">
-             <img src="../Oppty New/images/oppty.png" alt="">
-            </div>
-            <nav class="nav-bar">
-                <ul>
-                    <li><a href="../Oppty/oppty.html">Home</a></li>
-                    <li> <a href="../Oppty/about.html">About us</a></li>
-                    <li>
-                        <a href="../Oppty/our services.html">Our Services</a>
-
-                        <ul class="">
-                            <li><a href="../Oppty/Solutions.html">solutions</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="../Oppty/contact.html">Contact us</a></li>
-                    <li><a href="../Oppty/career.html">Careers</a></li>
-                    <li><a href="../Oppty/academy.html" class="bcr">Academy</a></li>
-                    <li><a href="../Oppty/oppty.html" class="bcr">Training Partner</a></li>
-                    <li><i class="fa-solid fa-phone"></i><a href="https://api.whatsapp.com/send/?phone=9491209900&text&type=phone_number&app_absent=0">+91 9491209900</a></li>
-                </ul>
-
-            </nav>
-
+    <div class="head-container">
+        <div class="head-logo">
+            <img src="../Oppty New/images/oppty.png" alt="Oppty Logo">
         </div>
 
-    </header>
+        <nav class="nav-bar">
+            <ul class="nav-links">
+                <li><a href="../Oppty/oppty.html">Home</a></li>
+                <li><a href="../Oppty/about.html">About us</a></li>
+                <li class="dropdown">
+                    <a href="../Oppty/our services.html">Our Services <i class="fa-solid fa-chevron-down"></i></a>
+                    <ul class="submenu">
+                        <li><a href="../Oppty/Solutions.html">Solutions</a></li>
+                    </ul>
+                </li>
+                <li><a href="../Oppty/contact.html">Contact us</a></li>
+                <li><a href="../Oppty/career.html">Careers</a></li>
+            </ul>
+        </nav>
 
+        <div class="head-actions">
+            <a href="../Oppty/academy.html" class="btn-nav academy">Academy</a>
+            <a href="../Oppty/oppty.html" class="btn-nav partner">Training Partner</a>
+            <div class="head-contact">
+                <i class="fa-solid fa-phone"></i>
+                <a href="https://api.whatsapp.com/send/?phone=9491209900">+91 9491209900</a>
+            </div>
+        </div>
+    </div>
+</header>
     <section class="hero-slider" id="heroSlider">
         <div class="hero-overlay">
             <h1>Innovative IT Solutions</h1>
@@ -223,13 +225,48 @@
     </div>
 </section>
 
+<footer class="main-footer">
+    <div class="footer-top-wave"></div>
+    <div class="footer-container">
+        <div class="footer-column brand-info">
+            <h2 class="footer-logo">Oppty<span>.in</span></h2>
+            <p>Empowering global businesses with cutting-edge IT infrastructure, AI-driven automation, and strategic BPO solutions.</p>
+            <div class="social-links">
+                <a href="#">LinkedIn</a>
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+            </div>
+        </div>
 
+        <div class="footer-column">
+            <h4>Our Offices</h4>
+            
+            <div class="address-box">
+                <h5>Hyderabad Location</h5>
+                <p>Flat number 601, Mahitha’s green galaxy, CBCID Colony, NRSA Colony, Bagath Singh Nagar Phase 2, Kukatpally, Telangana 500085</p>
+            </div>
 
+            <div class="address-box">
+                <h5>Udaipur Location</h5>
+                <p>Plot No: 26, 100 Feet Rd, Shobhagpura, Udaipur, Rajasthan 313011</p>
+            </div>
+        </div>
 
+        <div class="footer-column">
+            <h4>Get In Touch</h4>
+            <ul class="contact-list">
+                <li><span>Email:</span> info@oppty.in</li>
+                <li><span>Phone:</span> +91-9491209900</li>
+                <li><span>Support:</span> 24/7 Dedicated IT Support</li>
+            </ul>
+            <button class="footer-cta">Start a Project</button>
+        </div>
+    </div>
 
-
-
-
+    <div class="footer-bottom">
+        <p>&copy; 2026 <span class="highlight">Oppty</span>. All Rights Reserved.</p>
+    </div>
+</footer>
 
 <!---footer-->
     <script src="../Oppty New/JS/home.js"></script>

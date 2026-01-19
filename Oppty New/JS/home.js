@@ -1,4 +1,15 @@
-
+window.addEventListener('scroll', () => {
+    const header = document.querySelector('.head-section');
+    if (window.scrollY > 50) {
+        header.style.padding = "10px 0";
+        header.style.background = "rgba(255, 255, 255, 0.95)";
+        header.style.boxShadow = "0 10px 30px rgba(0,0,0,0.1)";
+    } else {
+        header.style.padding = "15px 0";
+        header.style.background = "rgba(255, 255, 255, 0.9)";
+        header.style.boxShadow = "none";
+    }
+});
 
 
 const images = [
@@ -130,4 +141,16 @@ dots.forEach((dot, i) => {
         currentTesti = i;
         updateSlider(i);
     });
+});
+
+
+const footerBrand = document.querySelector('.footer-bottom .highlight');
+
+footerBrand.addEventListener('mouseover', () => {
+    footerBrand.style.textShadow = "0 0 15px #ec7733";
+    footerBrand.style.transition = "0.3s";
+});
+
+footerBrand.addEventListener('mouseout', () => {
+    footerBrand.style.textShadow = "none";
 });

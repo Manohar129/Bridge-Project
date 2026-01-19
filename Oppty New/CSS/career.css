@@ -9,142 +9,218 @@
   box-sizing: border-box;
   font-family: "Space Grotesk", sans-serif;
 }
-/* Sticky Glassmorphism Header */
-.head-section {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  z-index: 9999;
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(15px); /* Blurs content behind the header */
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  padding: 15px 0;
-  transition: all 0.3s ease;
+
+
+:root {
+    --glass: rgba(255, 255, 255, 0.85);
+    --border: rgba(0, 0, 0, 0.05);
+    --orange: #E55F14;
 }
 
-.head-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 5%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.command-header {
+    position: fixed;
+    top: 25px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Creates the "Island" look */
+    z-index: 1000;
+    padding: 0 20px;
 }
 
-/* Logo Size Increase */
-.head-logo img {
-  height: 60px; /* Increased size */
-  width: auto;
-  transition: transform 0.3s ease;
+.island {
+    background: var(--glass);
+    backdrop-filter: blur(15px) saturate(180%);
+    border: 1px solid var(--border);
+    padding: 12px 25px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    transition: 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-/* Nav Links Styling */
+/* Logo Island */
+.logo-island img { height: 35px; }
+
+/* Menu Island */
+.nav-links { display: flex; list-style: none; gap: 25px; }
+.nav-links a { 
+    text-decoration: none; 
+    color: #444; 
+    font-weight: 600; 
+    font-size: 14px;
+    transition: 0.3s;
+}
+.nav-links a:hover { color: var(--orange); }
+
+/* Dot Alert on Services */
+.dot-alert {
+    width: 6px;
+    height: 6px;
+    background: var(--orange);
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 5px;
+    animation: pulse 2s infinite;
+}
+
+/* Action Island */
+.action-btn.academy {
+    background: var(--orange);
+    color: white;
+    text-decoration: none;
+    padding: 8px 20px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 13px;
+    margin-right: 15px;
+}
+
+.contact-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #f4f4f4;
+    padding: 8px 15px;
+    border-radius: 12px;
+}
+.contact-pill a { text-decoration: none; color: #1a1a1a; font-weight: 700; font-size: 12px; }
+
+/* Scroll Interaction */
+.command-header.scrolled .island {
+    background: rgba(255, 255, 255, 0.95);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.5); opacity: 0.5; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+
+/* 1. Reset & Island Layout Fixes */
+.command-header {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
+}
+
+/* Ensure the Menu Island allows the dropdown to be seen */
+.menu-island {
+    position: relative;
+    overflow: visible !important; /* CRITICAL: allows dropdown to exit the island */
+}
+
 .nav-links {
-  display: flex;
-  list-style: none;
-  gap: 25px;
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
 }
 
-.nav-links a {
-  text-decoration: none;
-  color: #1f1f1f;
-  font-weight: 600;
-  font-size: 15px;
-  position: relative;
-  padding: 5px 0;
+/* 2. The Drop Trigger Setup */
+.drop-trigger {
+    position: relative;
+    padding: 10px 0;
+    cursor: pointer;
 }
 
-/* Creative Hover Underline */
-.nav-links a::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: #ec7733;
-  transition: 0.3s ease;
+/* 3. The Mega Panel (Solutions) */
+.mega-panel {
+    position: absolute;
+    top: calc(100% + 15px); /* Positioned below the island */
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    width: 260px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(229, 95, 20, 0.1);
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    
+    /* Animation States */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.nav-links a:hover::after {
-  width: 100%;
+/* 4. The Hover Trigger */
+.drop-trigger:hover .mega-panel {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
 }
 
-/* Submenu / Dropdown */
-.dropdown {
-  position: relative;
+/* 5. Styling the Solutions Link inside the Panel */
+.mega-panel a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 15px;
+    text-decoration: none;
+    color: #1a1a1a;
+    border-radius: 12px;
+    transition: 0.3s ease;
+    background: transparent;
 }
 
-.submenu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: #fff;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  list-style: none;
-  padding: 15px;
-  min-width: 180px;
-  border-radius: 8px;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(10px);
-  transition: 0.3s ease;
+.mega-panel a i {
+    font-size: 18px;
+    color: #E55F14;
+    background: #fff5ef;
+    width: 20px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
 }
 
-.dropdown:hover .submenu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
+.mega-panel a span {
+    font-weight: 700;
+    font-size: 14px;
 }
 
-/* CTA Buttons */
-.head-actions {
-  display: flex;
-  align-items: center;
-  gap: 15px;
+.mega-panel a:hover {
+    background: #E55F14;
+    color: #fff !important;
 }
 
-.btn-nav {
-  text-decoration: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 14px;
-  font-weight: 700;
-  transition: 0.3s;
+.mega-panel a:hover i {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
 }
 
-.btn-nav.academy {
-  background: #1f1f1f;
-  color: #fff;
+/* 6. The "Dot Alert" Animation */
+.dot-alert {
+    width: 6px;
+    height: 6px;
+    background: #E55F14;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 5px;
+    vertical-align: middle;
+    box-shadow: 0 0 10px rgba(229, 95, 20, 0.5);
+    animation: pulseDot 2s infinite;
 }
 
-.btn-nav.partner {
-  background: #ec7733;
-  color: #fff;
-  box-shadow: 0 4px 15px rgba(236, 119, 51, 0.3);
+@keyframes pulseDot {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.6); opacity: 0.4; }
+    100% { transform: scale(1); opacity: 1; }
 }
 
-.btn-nav:hover {
-  transform: translateY(-2px);
-  opacity: 0.9;
-}
-/* nav Contact Styling */
-.head-contact {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  border-left: 1px solid #ddd;
-  padding-left: 15px;
-}
-
-.head-contact i {
-  color: #ec7733;
-}
-.head-contact a {
-  text-decoration: none;
-  color: #1f1f1f;
-  font-weight: 700;
-}
 
 .career-portal {
   background: #030303;

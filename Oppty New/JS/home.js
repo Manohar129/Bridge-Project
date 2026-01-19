@@ -1,3 +1,9 @@
+
+
+
+
+
+
 window.addEventListener('scroll', () => {
     const header = document.querySelector('.head-section');
     if (window.scrollY > 50) {
@@ -12,25 +18,21 @@ window.addEventListener('scroll', () => {
 });
 
 
-const images = [
-    '../Oppty New/images/new-20-1024x630.jpg',
-    '../Oppty New/images/1736937202phpzFvoCm.jpeg',
-    '../Oppty New/images/1721062700287.png',
-    '../Oppty New/images/0_o5062-0Phxt6S4LL.png',
-    '../Oppty New/images/E-commerce_web_design_EWM_SA_Digital_Agency_Geneva.jpg'
-];
+window.addEventListener('scroll', () => {
+    const islands = document.querySelectorAll('.feature-island');
+    const scrollY = window.scrollY;
 
-let currentIndex = 0;
-const sliderElement = document.getElementById('heroSlider');
-
-function changeBackground() {
-    sliderElement.style.backgroundImage = `url('${images[currentIndex]}')`;
-    currentIndex = (currentIndex + 1) % images.length;
-}
-
-// Initialize and interval
-changeBackground();
-setInterval(changeBackground, 5000);
+    islands.forEach(island => {
+        const speed = 0.05;
+        const rect = island.getBoundingClientRect();
+        
+        // Only animate if in viewport
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            const shift = rect.top * speed;
+            island.style.transform = `translateY(${shift}px)`;
+        }
+    });
+});
 
 
 

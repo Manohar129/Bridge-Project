@@ -585,67 +585,331 @@
     line-height: 1.5;
 }
 
-.why-choose-section {
+
+/* SECTION SETUP */
+.vertical-accordion {
     padding: 100px 8%;
-    background: #fff;
+    background: #0f0f0f; /* Deep Dark Background */
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    justify-content: center;
 }
 
-.why-header { text-align: center; margin-bottom: 60px; }
-
-.sub-glow {
-    color: #ec7733;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-weight: 700;
+.accordion-container {
+    display: flex;
+    width: 100%;
+    max-width: 1300px;
+    height: 600px; /* Fixed height for the whole widget */
+    gap: 40px;
 }
 
-.text-gradient {
-    background: linear-gradient(90deg, #ec7733, #ff8c4a);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* 4-Card Row Layout */
-.why-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    margin-bottom: 80px;
-}
-
-.why-card {
-    padding: 40px 25px;
-    background: #fcfcfc;
-    border-radius: 20px;
-    border: 1px solid #eee;
-    transition: 0.4s ease;
-    text-align: left;
-}
-
-.why-card:hover {
-    transform: translateY(-10px);
-    border-color: #ec7733;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.05);
-}
-
-/* Highlight Card Style */
-.highlight-card {
-    background: #1a1a1a;
+/* LEFT SIDE: HEADER */
+.accordion-header {
+    width: 30%; /* Takes up 30% of space */
+    padding-top: 40px;
     color: #fff;
-    border: none;
 }
 
-.highlight-card h3 { color: #fff !important; }
-.highlight-card p { color: #bbb !important; }
-
-.why-icon {
-    font-size: 30px;
-    color: #ec7733;
+.tag {
+    color: #E55F14;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 13px;
+    display: block;
     margin-bottom: 20px;
 }
 
-.why-card h3 { font-size: 18px; margin-bottom: 12px; color: #1a1a1a; }
-.why-card p { font-size: 14px; color: #666; line-height: 1.6; }
+.accordion-header h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 20px;
+}
+
+.outline-orange {
+    -webkit-text-stroke: 1px #E55F14;
+    color: transparent;
+}
+
+.accordion-header p {
+    color: #888;
+    line-height: 1.6;
+    font-size: 16px;
+    max-width: 300px;
+}
+
+/* RIGHT SIDE: THE ACCORDION STACK */
+.accordion-wrapper {
+    width: 70%;
+    display: flex;
+    flex-direction: column; /* Stack vertically */
+    gap: 15px;
+}
+
+.acc-item {
+    position: relative;
+    flex: 1; /* Start closed (equal small size) */
+    background: #1a1a1a;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Background Image styling */
+.acc-bg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2; /* Dark and subtle */
+    transition: 0.6s;
+    transform: scale(1.05);
+}
+
+/* Content Styling */
+.acc-content {
+    position: relative;
+    z-index: 2;
+    padding: 30px 40px;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.acc-num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #444;
+    margin-right: 30px;
+}
+
+.acc-item h3 {
+    font-size: 28px;
+    color: #fff;
+    font-weight: 700;
+    margin: 0;
+    white-space: nowrap;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Hidden Text (Reveals on Hover) */
+.acc-hidden-text {
+    opacity: 0;
+    max-width: 0;
+    overflow: hidden;
+    transition: 0.5s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 40px;
+    border-left: 1px solid rgba(255,255,255,0.1);
+}
+
+.acc-hidden-text p {
+    color: #ccc;
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    width: 300px;
+}
+
+.acc-link {
+    color: #E55F14;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- INTERACTION STATES --- */
+
+/* Hover State */
+.acc-item:hover, .acc-item.active {
+    flex: 4; /* Grow to 4x size */
+    background: #000; /* Darker background */
+    border-color: #E55F14;
+}
+
+.acc-item:hover .acc-bg, .acc-item.active .acc-bg {
+    opacity: 0.4;
+    transform: scale(1);
+    filter: grayscale(0%);
+}
+
+.acc-item:hover .acc-num, .acc-item.active .acc-num {
+    color: #E55F14;
+}
+
+.acc-item:hover .acc-hidden-text, .acc-item.active .acc-hidden-text {
+    opacity: 1;
+    max-width: 500px; /* Allow text to show */
+}
+
+/* SECTION BASE */
+.client-spotlight {
+    padding: 140px 10%;
+    background: #fdfdfd; /* Very clean off-white */
+    font-family: 'Inter', sans-serif;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(to bottom, transparent 50%, rgba(233, 155, 82, 0.3));
+}
+
+.spotlight-container {
+    max-width: 900px;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+/* BACKGROUND DECORATION */
+.bg-quote-icon {
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 300px;
+    line-height: 1;
+    color: rgba(0,0,0,0.03); /* Extremely subtle */
+    font-weight: 800;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* SLIDER LOGIC */
+.slider-wrapper {
+    position: relative;
+    min-height: 300px; /* Reserve space so it doesn't jump */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.review-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.review-slide.active-slide {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    position: relative; /* Allows it to take up space */
+}
+
+/* TYPOGRAPHY */
+.review-text {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(24px, 3vw, 36px);
+    font-weight: 500;
+    line-height: 1.4;
+    color: #1a1a1a;
+    margin-bottom: 40px;
+}
+
+.highlight {
+    color: #E55F14;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+}
+
+.highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: rgba(229, 95, 20, 0.15); /* Highlighter marker effect */
+    z-index: -1;
+}
+
+.review-author h4 {
+    font-size: 18px;
+    font-weight: 800;
+    color: #000;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.review-author span {
+    font-size: 14px;
+    color: #888;
+    font-weight: 500;
+}
+
+/* CONTROLS */
+.slider-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.control-btn {
+    background: transparent;
+    border: 1px solid #ddd;
+    width: 50px; height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #1a1a1a;
+    transition: 0.3s;
+    font-size: 16px;
+}
+
+.control-btn:hover {
+    background: #1a1a1a;
+    color: #fff;
+    border-color: #1a1a1a;
+}
+
+/* Progress Bar */
+.progress-bar {
+    width: 100px;
+    height: 2px;
+    background: #eee;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: #E55F14;
+    width: 33%; /* Adjust based on slide count */
+    position: absolute;
+    left: 0;
+    transition: left 0.5s ease;
+}
+
+
+
+
+
+
 
 
 /* Accreditation Section Styling */
@@ -869,103 +1133,349 @@
 }
 
 .reviewer strong { color: #1a1a1a; }
+/* SECTION BACKGROUND */
+.liquid-section {
+    padding: 180px 5%;
+    /* Deep, rich dark background with a subtle center light */
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+    min-height: 500px;
+}
 
-/* footer */
-.main-footer {
-    background: #0a0a0a;
-    color: #fff;
-    padding: 100px 8% 30px;
+.liquid-container {
+    max-width: 1100px;
+    position: relative;
+    z-index: 2;
+}
+
+/* TYPOGRAPHY */
+.liquid-tag {
+    display: inline-block;
+    color: #666;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 30px;
+    opacity: 0; /* Hidden initially */
+    transform: translateY(20px);
+    transition: 1s ease;
+}
+
+.liquid-headline {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(50px, 7vw, 110px); /* Massive Impact */
+    line-height: 1.1;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0;
+}
+
+/* THE LIQUID METAL EFFECT */
+.glow-text {
+    /* The Gradient: Orange -> White (Shine) -> Orange */
+    background: linear-gradient(
+        110deg, 
+        #E55F14 20%, 
+        #ffffff 50%, 
+        #E55F14 80%
+    );
+    
+    /* Make the background bigger than the text so we can move it */
+    background-size: 200% auto;
+    
+    /* Clip background to text */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    
+    /* The Animation */
+    animation: shine-flow 4s linear infinite;
+    display: inline-block;
+}
+
+@keyframes shine-flow {
+    to {
+        background-position: 200% center;
+    }
+}
+
+/* --- THE REVEAL ANIMATION (The Transaction) --- */
+
+/* Mask Container (Hides text when it's "down") */
+.text-mask {
+    overflow: hidden;
+    display: block;
+}
+
+/* The Sliding Text */
+.slide-up {
+    display: block;
+    transform: translateY(100%); /* Pushed down 100% */
+    transition: transform 1s cubic-bezier(0.215, 0.610, 0.355, 1.000), opacity 0.5s ease;
+}
+
+/* ACTIVE STATES (Triggered by JS) */
+.liquid-section.active .liquid-tag {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.liquid-section.active .slide-up {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Stagger Delays for a cascading feel */
+.text-mask:nth-child(1) .slide-up { transition-delay: 0.1s; }
+.text-mask:nth-child(2) .slide-up { transition-delay: 0.25s; }
+.text-mask:nth-child(3) .slide-up { transition-delay: 0.4s; }
+
+
+/* SECTION BACKGROUND */
+.liquid-section {
+    padding: 180px 5%;
+    background: #000000; /* Pure black */
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    min-height: 500px;
+}
+
+.liquid-container {
+    max-width: 1100px;
+    position: relative;
+    z-index: 2;
+}
+
+/* TYPOGRAPHY */
+.liquid-tag {
+    display: inline-block;
+    color: #666;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 30px;
+}
+
+.liquid-headline {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(50px, 7vw, 110px);
+    line-height: 1.1;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0;
+}
+
+/* THE LIQUID METAL EFFECT - FIXED FOR VISIBILITY */
+.glow-text {
+    /* 1. Fallback Color (If gradient fails, you see Orange) */
+    color: #E55F14; 
+    
+    /* 2. The Gradient */
+    background: linear-gradient(
+        110deg, 
+        #E55F14 20%, 
+        #ffffff 50%, 
+        #E55F14 80%
+    );
+    
+    background-size: 200% auto;
+    
+    /* 3. The Clip Magic */
+    -webkit-background-clip: text;
+    background-clip: text;
+    
+    /* 4. Make text transparent ONLY if background-clip is supported */
+    -webkit-text-fill-color: transparent;
+    
+    display: inline-block;
+    animation: shine-flow 4s linear infinite;
+}
+
+@keyframes shine-flow {
+    to {
+        background-position: 200% center;
+    }
+}
+
+.text-mask {
+    overflow: visible;
+    display: block;
+}
+
+.slide-up {
+    display: block;
+    opacity: 1; /* Force visible */
+    transform: none; /* No movement */
+}
+
+
+/*footer*/
+
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Syncopate:wght@700&display=swap');
+
+.industrial-footer {
+    --bg-color: #f4f4f4;
+    --accent: #ec7733;
+    --steel: #1a1a1a;
+    --text-muted: #666;
+    
+    background-color: var(--bg-color);
+    padding: 120px 8% 40px;
     position: relative;
     font-family: 'Space Grotesk', sans-serif;
+    color: var(--steel);
+    border-top: 10px solid var(--steel);
+    overflow: hidden;
 }
 
-.footer-container {
-    display: grid;
-    grid-template-columns: 1.2fr 1.5fr 1fr;
-    gap: 60px;
-}
-
-/* Oppty Brand Highlight */
-.footer-logo {
-    font-size: 35px;
-    font-weight: 800;
-    letter-spacing: -1px;
-    margin-bottom: 20px;
-}
-
-.footer-logo span {
-    color: #ec7733; /* Oppty Orange */
-}
-
-.brand-info p {
-    color: #999;
-    line-height: 1.8;
-    font-size: 15px;
-}
-
-/* Address Styling */
-.footer-column h4 {
-    font-size: 20px;
-    margin-bottom: 30px;
-    position: relative;
-    padding-bottom: 10px;
-}
-
-.footer-column h4::after {
-    content: '';
+/* The Blueprint Texture */
+.blueprint-overlay {
     position: absolute;
-    bottom: 0; left: 0;
-    width: 40px; height: 3px;
-    background: #ec7733;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: radial-gradient(var(--steel) 0.5px, transparent 0.5px);
+    background-size: 40px 40px;
+    opacity: 0.03;
+    pointer-events: none;
 }
 
-.address-box {
-    margin-bottom: 25px;
+.footer-main {
+    display: flex;
+    gap: 100px;
+    position: relative;
+    z-index: 2;
 }
 
-.address-box h5 {
-    color: #ec7733;
-    font-size: 16px;
-    margin-bottom: 8px;
+/* Brand Signature */
+.vertical-logo {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 50px;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    margin: 0;
+    line-height: 1;
+    letter-spacing: -5px;
+}
+
+.vertical-logo span {
+    color: var(--accent);
+}
+
+.mission-text {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-top: 20px;
+}
+
+/* Info Grid */
+.info-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 40px;
+    flex-grow: 1;
+}
+
+.col-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 40px;
     text-transform: uppercase;
 }
 
-.address-box p {
-    color: #ccc;
-    font-size: 14px;
-    line-height: 1.6;
+.location-item h4 {
+    font-size: 18px;
+    margin-bottom: 8px;
 }
 
-/* CTA Button */
-.footer-cta {
-    background: #ec7733;
-    border: none;
-    padding: 12px 25px;
-    color: #fff;
+.location-item p {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 25px;
+}
+
+.contact-link {
+    display: block;
+    font-size: 20px;
     font-weight: 700;
-    border-radius: 5px;
-    margin-top: 20px;
-    cursor: pointer;
+    color: var(--steel);
+    text-decoration: none;
+    margin-bottom: 10px;
     transition: 0.3s;
 }
 
-.footer-cta:hover {
-    background: #fff;
-    color: #ec7733;
+.contact-link:hover {
+    color: var(--accent);
 }
 
-/* Bottom Bar */
-.footer-bottom {
-    margin-top: 80px;
+/* Status Indicator */
+.status-indicator {
+    margin-top: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-pulse {
+    width: 8px; height: 8px;
+    background: #25d366;
+    border-radius: 50%;
+    animation: blink 1.5s infinite;
+}
+
+/* Industrial Button */
+.industrial-btn {
+    background: var(--steel);
+    color: #fff;
+    border: none;
+    padding: 20px 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%);
+    transition: 0.3s;
+}
+
+.industrial-btn:hover {
+    background: var(--accent);
+    padding-right: 40px;
+}
+
+.footer-sub-bar {
+    margin-top: 100px;
+    border-top: 1px solid rgba(0,0,0,0.1);
     padding-top: 30px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    text-align: center;
-    font-size: 14px;
-    color: #777;
-}
-
-.highlight {
-    color: #ec7733;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
     font-weight: 700;
 }
 
+.sub-links a {
+    color: var(--steel);
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.3; }
+    100% { opacity: 1; }
+}

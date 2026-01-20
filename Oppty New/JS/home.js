@@ -1,9 +1,4 @@
 
-
-
-
-
-
 window.addEventListener('scroll', () => {
     const header = document.querySelector('.head-section');
     if (window.scrollY > 50) {
@@ -14,6 +9,109 @@ window.addEventListener('scroll', () => {
         header.style.padding = "15px 0";
         header.style.background = "rgba(255, 255, 255, 0.9)";
         header.style.boxShadow = "none";
+    }
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    // 1. Scroll Reveal Logic
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+                
+                // Trigger Number Counter if it's the stats row
+                if(entry.target.querySelector('.stat-num')) {
+                    startCounting();
+                }
+            }
+        });
+    }, { threshold: 0.1 });
+
+    const targets = document.querySelectorAll('.scroll-reveal');
+    targets.forEach(t => {
+        t.style.opacity = "0";
+        t.style.transform = "translateY(30px)";
+        t.style.transition = "all 0.8s ease";
+        observer.observe(t);
+    });
+
+    // 2. Number Counter Logic
+    function startCounting() {
+        const counters = document.querySelectorAll('.stat-num');
+        counters.forEach(counter => {
+            const target = +counter.getAttribute('data-target');
+            const speed = 200; // Lower is faster
+            
+            const updateCount = () => {
+                const count = +counter.innerText.replace('+', ''); // Remove + to add
+                const inc = target / speed;
+
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + inc) + "+";
+                    setTimeout(updateCount, 20);
+                } else {
+                    counter.innerText = target + "+";
+                }
+            };
+            updateCount();
+        });
+    }
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Select all stat items
+    const statItems = document.querySelectorAll('.stat-item');
+
+    const observerOptions = {
+        threshold: 0.2 // Trigger when 20% of the item is visible
+    };
+
+    const statObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // 1. Trigger the Slide Animation
+                const item = entry.target;
+                item.classList.add('slide-in');
+
+                // 2. Trigger the Number Counter
+                const numElement = item.querySelector('.stat-number');
+                if (numElement) {
+                    animateValue(numElement);
+                }
+
+                // Stop observing this item once animated
+                observer.unobserve(item);
+            }
+        });
+    }, observerOptions);
+
+    statItems.forEach(item => {
+        statObserver.observe(item);
+    });
+
+    // Helper function to count numbers up
+    function animateValue(obj) {
+        const target = +obj.getAttribute('data-target'); // Get value from HTML
+        const duration = 2000; // Animation takes 2 seconds
+        let startTimestamp = null;
+
+        const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            
+            // Format number (removes decimals) and adds '+' if originally present
+            obj.innerHTML = Math.floor(progress * target) + (obj.innerHTML.includes('+') ? '+' : '');
+            
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            } else {
+                obj.innerHTML = target + (obj.innerHTML.includes('+') ? '+' : ''); // Ensure final value is exact
+            }
+        };
+        window.requestAnimationFrame(step);
     }
 });
 
@@ -144,6 +242,47 @@ dots.forEach((dot, i) => {
         updateSlider(i);
     });
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Select all elements with the 'fade-up-item' class
+    const observerItems = document.querySelectorAll('.fade-up-item');
+
+    const observerOptions = {
+        threshold: 0.15 // Trigger when 15% of the item is visible
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Add the class that forces opacity: 1 and translateY(0)
+                entry.target.classList.add('is-visible');
+                // Stop observing after it has animated once
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    observerItems.forEach(item => {
+        observer.observe(item);
+    });
+});
+
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.5 }); // Trigger when 50% visible
+
+        const strip = document.querySelector('.strip-container');
+        if(strip) observer.observe(strip);
+    });
+
+
 
 
 const footerBrand = document.querySelector('.footer-bottom .highlight');

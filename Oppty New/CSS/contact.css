@@ -12,33 +12,33 @@
 
 
 :root {
-    --glass: rgba(255, 255, 255, 0.85);
-    --border: rgba(0, 0, 0, 0.05);
-    --orange: #E55F14;
+  --glass: rgba(255, 255, 255, 0.85);
+  --border: rgba(0, 0, 0, 0.05);
+  --orange: #E55F14;
 }
 
 .command-header {
-    position: fixed;
-    top: 25px;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 15px; /* Creates the "Island" look */
-    z-index: 1000;
-    padding: 0 20px;
+  position: fixed;
+  top: 25px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 15px; /* Creates the "Island" look */
+  z-index: 1000;
+  padding: 0 20px;
 }
 
 .island {
-    background: var(--glass);
-    backdrop-filter: blur(15px) saturate(180%);
-    border: 1px solid var(--border);
-    padding: 12px 25px;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-    transition: 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  background: var(--glass);
+  backdrop-filter: blur(15px) saturate(180%);
+  border: 1px solid var(--border);
+  padding: 12px 25px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+  transition: 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 /* Logo Island */

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+ /* --- Cinematic Section Core --- */
+.cinematic-about {
+    position: relative;
+    /* Adjust height as needed. 85vh is a strong hero height. */
+    height: 85vh; 
+    min-height: 600px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+}
+
+/* 1. Positioning the Video */
+.bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -2;
+    /* Centers and covers the area without stretching */
+    transform: translateX(-50%) translateY(-50%);
+    object-fit: cover;
+}
+
+/* 2. The Overlay Gradient */
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    /* A deep gradient from dark blue-black to slightly transparent black */
+    background: linear-gradient(135deg, rgba(5, 10, 20, 0.9) 0%, rgba(0, 0, 0, 0.6) 100%);
+}
+
+/* 3. Content Styling */
+.content-container.z-index-up {
+    position: relative;
+    z-index: 10; /* Ensures content sits on top of overlay */
+    max-width: 900px;
+    padding: 0 5%;
+    text-align: center;
+}
+
+.text-wrapper {
+    animation: fadeUp 1s ease-out;
+}
+
+.tech-eyebrow {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-weight: 700;
+    font-size: 14px;
+    color: #E55F14; /* Oppty Orange */
+    margin-bottom: 25px;
+    font-family: 'Space Grotesk', sans-serif; /* Optional tech font */
+}
+
+.tech-headline {
+    font-size: clamp(40px, 8vw, 80px);
+    line-height: 1.1;
+    font-weight: 800;
+    margin-bottom: 30px;
+    letter-spacing: -2px;
+}
+
+.highlight-text {
+    color: #ffffff;
+    /* Adds a subtle futuristic glow to the main text */
+    text-shadow: 0 0 20px rgba(229, 95, 20, 0.3);
+    -webkit-text-stroke: 1px #E55F14;
+}
+
+.tech-description {
+    font-size: 20px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 750px;
+    margin: 0 auto 50px auto;
+}
+
+.tech-description strong {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* Quick Pillar Indicators */
+.pillar-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.pillar-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.pillar-indicator {
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255,255,255,0.5);
+}
+
+.pillar-indicator.orange {
+    background: #E55F14;
+    box-shadow: 0 0 10px rgba(229, 95, 20, 0.8);
+}
+
+/* Buttons */
+.action-row {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.tech-btn {
+    padding: 15px 35px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+
+.tech-btn.primary {
+    background: #E55F14;
+    color: #fff;
+    border: 1px solid #E55F14;
+}
+
+.tech-btn.primary:hover {
+    background: transparent;
+    box-shadow: 0 0 20px rgba(229, 95, 20, 0.4);
+}
+
+.tech-btn.secondary {
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.tech-btn.secondary:hover {
+    background: #fff;
+    color: #1a1a1a;
+}
+
+/* Simple entrance animation */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .cinematic-about { height: auto; padding: 100px 0; }
+    .pillar-grid { gap: 20px; }
+    .action-row { flex-direction: column; }
+}
+    </style>
+</head>
+<body>
+    <section class="cinematic-about">
+    
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="../html,css/279513_medium.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="video-overlay"></div>
+
+    <div class="content-container z-index-up">
+        <div class="text-wrapper">
+            <span class="tech-eyebrow">/// The Oppty Ecosystem</span>
+            
+            <h2 class="tech-headline">
+                Engineered for the <br>
+                <span class="highlight-text">Autonomous Future.</span>
+            </h2>
+            
+            <p class="tech-description">
+                Oppty is where intelligence meets infrastructure. We are redefining the technology hub by integrating <strong>Self-Healing IT Systems</strong>, <strong>AI-Augmented BPO</strong>, and an <strong>Elite Talent Pipeline</strong> into a single, synchronized operating environment for global enterprise.
+            </p>
+
+            <div class="pillar-grid">
+                <div class="pillar-item">
+                    <div class="pillar-indicator"></div>
+                    <span>Adaptive Cloud</span>
+                </div>
+                <div class="pillar-item">
+                    <div class="pillar-indicator orange"></div>
+                    <span>Cognitive Ops</span>
+                </div>
+                <div class="pillar-item">
+                    <div class="pillar-indicator"></div>
+                    <span>ProCareer Certified</span>
+                </div>
+            </div>
+
+            <div class="action-row">
+                <a href="#solutions" class="tech-btn primary">Our Technology</a>
+                <a href="#contact" class="tech-btn secondary">Partner With Us</a>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

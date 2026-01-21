@@ -167,45 +167,6 @@ footerBrand.addEventListener('mouseout', () => {
 });
 
 
-
-
-
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.review-slide');
-    const progressFill = document.querySelector('.progress-fill');
-    const totalSlides = slides.length;
-
-    function showSlide(index) {
-        // Reset all slides
-        slides.forEach(slide => {
-            slide.classList.remove('active-slide');
-            // We need to briefly set absolute position back for transition to look right
-            // but CSS handles the heavy lifting
-        });
-
-        // Loop index if out of bounds
-        if (index >= totalSlides) currentSlide = 0;
-        else if (index < 0) currentSlide = totalSlides - 1;
-        else currentSlide = index;
-
-        // Activate new slide
-        slides[currentSlide].classList.add('active-slide');
-
-        // Update Progress Bar
-        const percentage = ((currentSlide + 1) / totalSlides) * 100;
-        progressFill.style.width = (100 / totalSlides) + "%"; // Size of bar
-        progressFill.style.left = (currentSlide * (100 / totalSlides)) + "%"; // Position
-    }
-
-    function nextSlide() {
-        showSlide(currentSlide + 1);
-    }
-
-    function prevSlide() {
-        showSlide(currentSlide - 1);
-    }
-
-
     
     document.addEventListener("DOMContentLoaded", function() {
         const liquidObserver = new IntersectionObserver((entries) => {

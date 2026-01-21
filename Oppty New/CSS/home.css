@@ -120,7 +120,7 @@ body{
   position: relative;
   /* Adjust height as needed. 85vh is a strong hero height. */
   height: 100vh;
-  min-height: 900px;
+  min-height: 750px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -182,7 +182,7 @@ body{
   font-size: 14px;
   color: #e55f14; /* Oppty Orange */
   margin-bottom: 25px;
-  font-family: "Space Grotesk", sans-serif; /* Optional tech font */
+
 }
 
 .tech-headline {
@@ -457,7 +457,7 @@ body{
   height: 600px;
   background: radial-gradient(
     circle,
-    rgba(229, 95, 20, 0.08) 0%,
+    rgba(219, 87, 10, 0.08) 0%,
     transparent 70%
   );
   z-index: 0;
@@ -476,7 +476,7 @@ body{
 .tag-pill {
   display: inline-block;
   padding: 8px 16px;
-  background: #fff;
+  background: #c5bebe;
   border: 1px solid #ddd;
   border-radius: 50px;
   font-size: 12px;
@@ -485,7 +485,7 @@ body{
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 30px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 5px 15px rgba(197, 34, 34, 0.05);
 }
 
 .manifesto-title {
@@ -522,45 +522,45 @@ body{
   max-width: 550px;
 }
 .stats-row {
-    display: flex;
-    gap: 50px;
-    margin-top: 40px;
-    padding-top: 30px;
-    border-top: 2px solid #eee;
-    position: relative;
-    z-index: 10;
+  display: flex;
+  gap: 50px;
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 2px solid #eee;
+  position: relative;
+  z-index: 10;
 }
 
 .stat-item {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    position: relative;
-    height: auto;
-    overflow: visible;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  height: auto;
+  overflow: visible;
 }
 
 .stat-num {
-    display: block;
-    font-size: 48px;
-    font-weight: 800;
-    color: #1a1a1a;
-    line-height: 1;
-    margin-bottom: 10px;
+  display: block;
+  font-size: 48px;
+  font-weight: 800;
+  color: #1a1a1a;
+  line-height: 1;
+  margin-bottom: 10px;
 }
 
 .stat-label {
-    display: block !important;
-    width: 100%;
-    font-size: 14px;
-    font-weight: 700;
-    color: #E55F14 !important;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    opacity: 1 !important;
-    visibility: visible !important;
-    position: relative;
-    z-index: 20;
+  display: block !important;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 700;
+  color: #E55F14 !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 1 !important;
+  visibility: visible !important;
+  position: relative;
+  z-index: 20;
 }
 
 .magnetic-btn {
@@ -696,6 +696,134 @@ body{
   content: none; 
 }
 
+
+
+/* SECTION SETUP */
+.why-oppty-hud {
+    position: relative;
+    padding: 120px 5%;
+    background: #0a0a0a; /* Deep dark base */
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+/* THE MOVING BLUEPRINT BACKGROUND */
+.blueprint-grid-bg {
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px; /* Grid square size */
+    transform: perspective(500px) rotateX(60deg); /* The 3D Tilt */
+    animation: grid-scroll 20s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes grid-scroll {
+    0% { transform: perspective(500px) rotateX(60deg) translateY(0); }
+    100% { transform: perspective(500px) rotateX(60deg) translateY(40px); }
+}
+
+/* THE GLASS PANEL */
+.glass-panel {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    background: rgba(20, 20, 20, 0.7); /* Semi-transparent black */
+    backdrop-filter: blur(15px); /* The Glass Blur Effect */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 60px;
+    border-radius: 4px; /* Sharp technical corners */
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+}
+
+/* HUD HEADER */
+.hud-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.hud-label {
+    font-family: 'Space Grotesk', sans-serif;
+    color: #E55F14;
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.status-light {
+    width: 10px; height: 10px;
+    background: #4cd964; /* Green Online Status */
+    border-radius: 50%;
+    box-shadow: 0 0 10px #4cd964;
+    animation: blink 2s infinite;
+}
+
+/* TYPOGRAPHY */
+.glass-panel h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 42px;
+    color: #fff;
+    margin-bottom: 30px;
+    font-weight: 800;
+}
+
+.text-orange { color: #E55F14; }
+
+.manifesto-content p {
+    color: #cccccc;
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.manifesto-content strong {
+    color: #fff;
+    font-weight: 700;
+}
+
+.closing-statement {
+    font-size: 20px !important;
+    color: #fff !important;
+    font-style: italic;
+    border-left: 3px solid #E55F14;
+    padding-left: 20px;
+    margin-top: 40px;
+}
+
+/* CORNER MARKERS (The "Tech" feel) */
+.corner-mark {
+    position: absolute;
+    width: 20px; height: 20px;
+    border: 2px solid #E55F14;
+    opacity: 0.5;
+}
+
+.tl { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+.tr { top: -1px; right: -1px; border-left: none; border-bottom: none; }
+.bl { bottom: -1px; left: -1px; border-right: none; border-top: none; }
+.br { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+
+/* ANIMATION */
+.reveal-hud {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: all 0.8s ease-out;
+}
+
+.reveal-hud.active {
+    opacity: 1;
+    transform: scale(1);
+}
 
 
 /* The Grid System */
@@ -1009,18 +1137,13 @@ p,
 }
 
 .stat-item {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(233, 224, 224, 0.4);
   backdrop-filter: blur(5px);
   padding: 40px 20px;
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   text-align: center;
   transition: transform 0.3s ease;
-}
-
-.stat-item:hover {
-  transform: translateY(-10px);
-  background: rgba(255, 255, 255, 0.15);
 }
 
 .stat-number {
@@ -1583,9 +1706,12 @@ p,
     color: #fff;
     transform: translateX(5px);
     box-shadow: 0 10px 20px rgba(229, 95, 20, 0.3);
+
 }
 
-/* footer section*/
+
+/*footer*/
+
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Syncopate:wght@700&display=swap');
 
 .industrial-footer {
@@ -1618,22 +1744,22 @@ p,
     gap: 100px;
     position: relative;
     z-index: 2;
+    flex-wrap: wrap; /* Ensures responsiveness */
 }
 
-/* Brand Signature */
-.vertical-logo {
-    font-family: 'Syncopate', sans-serif;
-    font-size: 50px;
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
-    margin: 0;
-    line-height: 1;
-    letter-spacing: -5px;
+/* --- NEW LOGO STYLING --- */
+.brand-signature {
+    min-width: 250px; /* Ensures the logo column has space */
 }
 
-.vertical-logo span {
-    color: var(--accent);
+.footer-logo-img {
+    width: 100%;
+    max-width: 200px; /* Limits logo size */
+    height: auto;
+    display: block;
+    margin-bottom: 25px; /* Space below image */
 }
+/* ------------------------ */
 
 .mission-text {
     font-weight: 700;
@@ -1641,12 +1767,13 @@ p,
     font-size: 11px;
     letter-spacing: 2px;
     margin-top: 20px;
+    line-height: 1.6;
 }
 
 /* Info Grid */
 .info-grid {
     display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 40px;
     flex-grow: 1;
 }
@@ -1663,12 +1790,14 @@ p,
 .location-item h4 {
     font-size: 18px;
     margin-bottom: 8px;
+    font-weight: 700;
 }
 
 .location-item p {
     font-size: 14px;
     color: var(--text-muted);
     margin-bottom: 25px;
+    line-height: 1.5;
 }
 
 .contact-link {
@@ -1729,6 +1858,8 @@ p,
     justify-content: space-between;
     font-size: 12px;
     font-weight: 700;
+    position: relative;
+    z-index: 2;
 }
 
 .sub-links a {
@@ -1743,19 +1874,3 @@ p,
     100% { opacity: 1; }
 }
 
-.industrial-footer {
-    /* --- UPDATED BACKGROUND VARIABLES --- */
-    --accent: #ec7733;
-    --steel: #1a1a1a;
-    --text-muted: #666; 
-    background: linear-gradient(180deg, #e0e0e0 0%, #f4f4f4 40%, #ffffff 100%);
-    
-    padding: 120px 8% 40px;
-    position: relative;
-    font-family: 'Space Grotesk', sans-serif;
-    color: var(--steel);
-    
-    /* Border kept for contrast */
-    border-top: 10px solid var(--steel);
-    overflow: hidden;
-}

@@ -13,6 +13,27 @@ window.addEventListener('scroll', () => {
 
 
 
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    const splitObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, { threshold: 0.3 });
+
+    const leftCol = document.querySelector('.reveal-left');
+    const rightCol = document.querySelector('.reveal-right');
+    
+    if(leftCol) splitObserver.observe(leftCol);
+    if(rightCol) splitObserver.observe(rightCol);
+});
+
+
+
 const serviceCards = document.querySelectorAll('.service-main-card');
 
 const serviceObserver = new IntersectionObserver((entries) => {
@@ -35,6 +56,26 @@ serviceCards.forEach(card => {
 });
 
 
+
+document.addEventListener("DOMContentLoaded", function() {
+    const splitObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, { threshold: 0.3 }); // Triggers when 30% visible
+
+    const leftCol = document.querySelector('.reveal-left');
+    const rightCol = document.querySelector('.reveal-right');
+    
+    if(leftCol) splitObserver.observe(leftCol);
+    if(rightCol) splitObserver.observe(rightCol);
+});
+
+
+
+
 const modules = document.querySelectorAll('.hub-module');
 const section = document.querySelector('.service-hub-section');
 
@@ -48,6 +89,8 @@ modules.forEach(module => {
         section.style.background = '#050505'; // Resets to dark
     });
 });
+
+
 
 // Staggered reveal
 const hubObserver = new IntersectionObserver((entries) => {
@@ -108,3 +151,21 @@ window.addEventListener('scroll', () => {
         header.style.boxShadow = "none";
     }
 });
+
+
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const gridObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    gridObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        const targets = document.querySelectorAll('.reveal-up');
+        targets.forEach(target => gridObserver.observe(target));
+    });
+
+

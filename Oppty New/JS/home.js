@@ -61,6 +61,22 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+    document.addEventListener("DOMContentLoaded", function() {
+        const hudObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.2 });
+
+        const hud = document.querySelector('.reveal-hud');
+        if(hud) hudObserver.observe(hud);
+    });
+
+
+
+
 document.addEventListener("DOMContentLoaded", () => {
     // Select all stat items
     const statItems = document.querySelectorAll('.stat-item');

@@ -100,6 +100,43 @@
     100% { transform: scale(1); opacity: 1; }
 }
 
+/* Container for the image and text */
+.photo-hero {
+    /* 1. The Background Image (Replace URL with your own) */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80');
+    
+    /* 2. Sizing and Positioning */
+    height: 600px; /* Adjust height as needed */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* 3. Centering the Text */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+    /* 4. Text Color */
+    color: white;
+}
+
+/* Heading Style */
+.hero-text h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+    font-family: sans-serif;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+}
+
+/* Paragraph Style */
+.hero-text p {
+    font-size: 24px;
+    font-family: sans-serif;
+    margin: 0;
+}
+
 
 /* 1. Reset & Island Layout Fixes */
 .command-header {
@@ -753,165 +790,6 @@
     max-width: 500px; /* Allow text to show */
 }
 
-/* SECTION BASE */
-.client-spotlight {
-    padding: 140px 10%;
-    background: #fdfdfd; /* Very clean off-white */
-    font-family: 'Inter', sans-serif;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    background: linear-gradient(to bottom, transparent 50%, rgba(233, 155, 82, 0.3));
-}
-
-.spotlight-container {
-    max-width: 900px;
-    width: 100%;
-    position: relative;
-    z-index: 2;
-    text-align: center;
-}
-
-/* BACKGROUND DECORATION */
-.bg-quote-icon {
-    position: absolute;
-    top: -100px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 300px;
-    line-height: 1;
-    color: rgba(0,0,0,0.03); /* Extremely subtle */
-    font-weight: 800;
-    pointer-events: none;
-    z-index: -1;
-}
-
-/* SLIDER LOGIC */
-.slider-wrapper {
-    position: relative;
-    min-height: 300px; /* Reserve space so it doesn't jump */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.review-slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px);
-    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-.review-slide.active-slide {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-    position: relative; /* Allows it to take up space */
-}
-
-/* TYPOGRAPHY */
-.review-text {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(24px, 3vw, 36px);
-    font-weight: 500;
-    line-height: 1.4;
-    color: #1a1a1a;
-    margin-bottom: 40px;
-}
-
-.highlight {
-    color: #E55F14;
-    font-weight: 700;
-    position: relative;
-    display: inline-block;
-}
-
-.highlight::after {
-    content: '';
-    position: absolute;
-    bottom: 2px;
-    left: 0;
-    width: 100%;
-    height: 8px;
-    background: rgba(229, 95, 20, 0.15); /* Highlighter marker effect */
-    z-index: -1;
-}
-
-.review-author h4 {
-    font-size: 18px;
-    font-weight: 800;
-    color: #000;
-    margin-bottom: 5px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.review-author span {
-    font-size: 14px;
-    color: #888;
-    font-weight: 500;
-}
-
-/* CONTROLS */
-.slider-controls {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 60px;
-}
-
-.control-btn {
-    background: transparent;
-    border: 1px solid #ddd;
-    width: 50px; height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    color: #1a1a1a;
-    transition: 0.3s;
-    font-size: 16px;
-}
-
-.control-btn:hover {
-    background: #1a1a1a;
-    color: #fff;
-    border-color: #1a1a1a;
-}
-
-/* Progress Bar */
-.progress-bar {
-    width: 100px;
-    height: 2px;
-    background: #eee;
-    position: relative;
-    overflow: hidden;
-}
-
-.progress-fill {
-    height: 100%;
-    background: #E55F14;
-    width: 33%; /* Adjust based on slide count */
-    position: absolute;
-    left: 0;
-    transition: left 0.5s ease;
-}
-
-
-
-
-
-
-
-
 /* Accreditation Section Styling */
 .national-accreditation {
     padding: 60px 8%;
@@ -967,6 +845,83 @@
     transform: scale(1.1);
 }
 
+/* SECTION LAYOUT */
+.culture-section {
+    padding: 100px 5%;
+    background: #fff;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+.culture-container {
+    display: flex;
+    gap: 40px;
+    max-width: 1100px; /* Increased slightly for more text space */
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+/* BASE CARD STYLING */
+.culture-card {
+    flex: 1;
+    min-width: 320px;
+    padding: 50px 40px;
+    border-radius: 24px;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Aligns content to top */
+}
+
+/* Hover Effect */
+.culture-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+/* CARD 1 GRADIENT: Fire / Energy */
+.card-innovation {
+    background: linear-gradient(135deg, #E55F14 0%, #d83a00 100%);
+}
+
+/* CARD 2 GRADIENT: Tech / Deep Space */
+.card-growth {
+    background: linear-gradient(135deg, #130725 0%, #272727 100%);
+}
+
+/* ICON STYLING */
+.card-icon {
+    font-size: 32px;
+    margin-bottom: 25px;
+    background: rgba(255,255,255,0.2);
+    width: 60px; height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+}
+
+/* TYPOGRAPHY */
+.culture-card h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.culture-card p {
+    font-size: 16px;
+    line-height: 1.7; /* Increased line-height for better readability */
+    opacity: 0.95;
+    margin: 0;
+    font-weight: 400;
+}
 
 
 
@@ -1321,9 +1276,7 @@
 }
 
 
-/*footer*/
-
-    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Syncopate:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Syncopate:wght@700&display=swap');
 
 .industrial-footer {
     --bg-color: #f4f4f4;
@@ -1355,22 +1308,22 @@
     gap: 100px;
     position: relative;
     z-index: 2;
+    flex-wrap: wrap; /* Ensures responsiveness */
 }
 
-/* Brand Signature */
-.vertical-logo {
-    font-family: 'Syncopate', sans-serif;
-    font-size: 50px;
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
-    margin: 0;
-    line-height: 1;
-    letter-spacing: -5px;
+/* --- NEW LOGO STYLING --- */
+.brand-signature {
+    min-width: 250px; /* Ensures the logo column has space */
 }
 
-.vertical-logo span {
-    color: var(--accent);
+.footer-logo-img {
+    width: 100%;
+    max-width: 200px; /* Limits logo size */
+    height: auto;
+    display: block;
+    margin-bottom: 25px; /* Space below image */
 }
+/* ------------------------ */
 
 .mission-text {
     font-weight: 700;
@@ -1378,12 +1331,13 @@
     font-size: 11px;
     letter-spacing: 2px;
     margin-top: 20px;
+    line-height: 1.6;
 }
 
 /* Info Grid */
 .info-grid {
     display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 40px;
     flex-grow: 1;
 }
@@ -1400,12 +1354,14 @@
 .location-item h4 {
     font-size: 18px;
     margin-bottom: 8px;
+    font-weight: 700;
 }
 
 .location-item p {
     font-size: 14px;
     color: var(--text-muted);
     margin-bottom: 25px;
+    line-height: 1.5;
 }
 
 .contact-link {
@@ -1466,6 +1422,8 @@
     justify-content: space-between;
     font-size: 12px;
     font-weight: 700;
+    position: relative;
+    z-index: 2;
 }
 
 .sub-links a {
@@ -1479,3 +1437,4 @@
     50% { opacity: 0.3; }
     100% { opacity: 1; }
 }
+

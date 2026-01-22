@@ -23,3 +23,24 @@ window.addEventListener('scroll', () => {
         header.style.boxShadow = "none";
     }
 });
+
+
+
+    // Function to open the map overlay
+    function openMap() {
+        const overlay = document.getElementById('mapOverlay');
+        overlay.style.display = 'flex'; // Shows the modal
+    }
+
+    // Function to close the map overlay
+    function closeMap() {
+        const overlay = document.getElementById('mapOverlay');
+        overlay.style.display = 'none'; // Hides the modal
+    }
+
+    // Close the map if the user clicks on the dark background (outside the box)
+    document.getElementById('mapOverlay').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeMap();
+        }
+    });

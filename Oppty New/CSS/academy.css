@@ -222,93 +222,312 @@
 }
 
 
+/* SECTION SETUP */
+.fixed-slider-hero {
+    position: relative;
+    height: 90vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+
+    /* ACADEMY BACKGROUND IMAGE */
+    background-image: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1600&q=80');
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* OVERLAY - EXACT SAME PURPLE/ORANGE GRADIENT */
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    
+    /* Deep Purple to Brand Orange (Same as Career Page) */
+    background: rgba(0, 0, 0, 0.85); /* Darker overlay for contrast */
+    
+    z-index: 1;
+}
+
+/* CONTENT STYLES */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    padding: 0 20px;
+}
+
+.hero-tag {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 8px 16px;
+    border-radius: 50px;
+    margin-bottom: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+}
+
+.hero-content h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(50px, 7vw, 90px);
+    line-height: 1.1;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.hero-content p {
+    font-size: 18px;
+    color: #e2e8f0;
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+    line-height: 1.6;
+}
+
+/* ACADEMY BUTTON STYLE */
+.academy-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #fff;
+    color: #E55F14; /* Orange Text */
+    text-decoration: none;
+    padding: 16px 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 4px;
+    transition: 0.3s;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.academy-cta-btn:hover {
+    background: #E55F14;
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* --- TEXT SLIDER LOGIC --- */
+
+.scrolling-words-container {
+    height: 1.1em;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: bottom;
+    margin-bottom: -5px;
+}
+
+.scrolling-words-box {
+    display: block;
+    animation: scrollUp 6s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+}
+
+.word {
+    display: block;
+    height: 100%;
+    padding-bottom: 10px;
+}
+
+/* SAME GRADIENT: Orange to Purple */
+.gradient-text {
+    background: linear-gradient(90deg, #E55F14, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+@keyframes scrollUp {
+    0% { transform: translateY(0%); }
+    20% { transform: translateY(0%); }
+    33% { transform: translateY(-25%); }
+    53% { transform: translateY(-25%); }
+    66% { transform: translateY(-50%); }
+    86% { transform: translateY(-50%); }
+    100% { transform: translateY(-75%); }
+}
+
+@media (max-width: 768px) {
+    .fixed-slider-hero { background-attachment: scroll; }
+    .hero-content h1 { font-size: 42px; }
+}
 
 
+/* --- 1. LAYOUT & BACKGROUND --- */
 .academy-portal {
-    background: #ffffff;
-    padding: 120px 8%;
-    color: #1a1a1a;
+    padding: 100px 5%;
+    
+    /* THE LIGHT ORANGE GRADIENT */
+    background: linear-gradient(135deg, #fff8f2 0%, #ffead6 100%);
+    
+    font-family: 'Inter', sans-serif;
+    color: #1a1a1a; /* Dark Text for readability */
 }
 
 .academy-header {
+    text-align: center;
     max-width: 800px;
-    margin-bottom: 80px;
+    margin: 0 auto 60px;
 }
 
-/* Syllabus Grid */
+.academy-header h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+.academy-header p {
+    color: #555; /* Dark Grey for description */
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.text-orange { color: #E55F14; }
+.eyebrow { 
+    color: #E55F14; /* Orange eyebrow for contrast */
+    text-transform: uppercase; 
+    letter-spacing: 2px; font-weight: 700; font-size: 12px;
+}
+
 .syllabus-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
+/* --- 2. THE CARD (Light Theme) --- */
 .syllabus-pillar {
-    background: #fff;
-    border: 1px solid #eee;
-    padding: 50px 40px;
-    border-radius: 20px;
+    background: #ffffff; /* White Cards */
+    border: 1px solid #e5e5e5; /* Light Grey Border */
+    padding: 40px 30px;
+    border-radius: 16px;
     position: relative;
-    transition: 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+    cursor: default;
+    /* Soft shadow for depth */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
 }
 
+/* Featured Pillar (Middle One) */
+.featured-pillar {
+    border-color: #E55F14; /* Highlight the middle one slightly */
+    background: #fff;
+}
+
+/* --- 3. THE HOVER EFFECTS --- */
+
+/* Lift and Glow */
 .syllabus-pillar:hover {
     transform: translateY(-15px);
-    box-shadow: 0 40px 80px rgba(0,0,0,0.05);
     border-color: #E55F14;
+    /* Orange shadow on white background */
+    box-shadow: 0 25px 50px rgba(229, 95, 20, 0.15); 
 }
 
-.featured-pillar {
-    background: #fafafa;
-    border: 2px solid #E55F14;
-}
-
+/* The Label (Module 01) */
 .pillar-label {
     font-size: 11px;
-    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #E55F14;
-    margin-bottom: 20px;
+    letter-spacing: 1px;
+    color: #888;
+    margin-bottom: 15px;
+    display: inline-block;
+    padding: 5px 10px;
+    background: #f5f5f5; /* Light grey tag */
+    border-radius: 4px;
+    transition: 0.3s;
+    font-weight: 700;
 }
 
+.syllabus-pillar:hover .pillar-label {
+    background: #E55F14;
+    color: #fff;
+}
+
+/* The Title */
 .syllabus-pillar h3 {
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 24px;
-    margin-bottom: 30px;
-    line-height: 1.3;
+    margin-bottom: 25px;
+    color: #000; /* Black Title */
+    transition: 0.3s;
 }
 
+.syllabus-pillar:hover h3 {
+    color: #E55F14;
+}
+
+/* The List Items */
 .syllabus-list {
     list-style: none;
     padding: 0;
-    margin-bottom: 40px;
+    margin: 0 0 30px 0;
 }
 
 .syllabus-list li {
-    padding: 12px 0;
-    border-bottom: 1px solid #f0f0f0;
     font-size: 15px;
-    color: #555;
+    color: #666; /* Dark grey text */
+    margin-bottom: 12px;
     display: flex;
     align-items: center;
     gap: 10px;
+    transition: 0.3s;
+    border-left: 2px solid #eee; 
+    padding-left: 10px;
 }
 
-.syllabus-list li::before {
-    content: '→';
-    color: #E55F14;
-    font-weight: bold;
+/* Slide Animation on Hover */
+.syllabus-pillar:hover .syllabus-list li {
+    transform: translateX(10px);
+    color: #000; /* Darker on hover */
+    border-left-color: #E55F14;
 }
 
+.syllabus-pillar:hover li:nth-child(1) { transition-delay: 0.05s; }
+.syllabus-pillar:hover li:nth-child(2) { transition-delay: 0.1s; }
+.syllabus-pillar:hover li:nth-child(3) { transition-delay: 0.15s; }
+.syllabus-pillar:hover li:nth-child(4) { transition-delay: 0.2s; }
+
+/* Footer/Duration */
 .pillar-footer {
-    padding-top: 20px;
     border-top: 1px solid #eee;
+    padding-top: 20px;
+    transition: 0.3s;
+}
+
+.syllabus-pillar:hover .pillar-footer {
+    border-color: rgba(229, 95, 20, 0.3);
 }
 
 .duration {
     font-size: 13px;
     font-weight: 700;
-    color: #888;
+    color: #444;
+    display: flex; align-items: center; gap: 8px;
 }
+
+.duration i { color: #E55F14; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .syllabus-grid { grid-template-columns: 1fr; }
+    .syllabus-pillar:hover { transform: translateY(-5px); }
+}
+
+
 
 :root {
     --card-bg: #ffffff;
@@ -321,6 +540,7 @@
     background: #ffffff;
     padding: 120px 8%;
     overflow: hidden;
+    background: linear-gradient(135deg, #fff8f2 0%, #ffead6 100%);
 }
 
 /* 3D Matrix Grid */
@@ -585,104 +805,739 @@
     opacity: 0.8;
 }
 
+/* --- MAIN GRID --- */
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    gap: 60px;
+    padding: 80px 0;
+}
 
-/* footer */
-.main-footer {
-  background: #0a0a0a;
-  color: #fff;
-  padding: 100px 8% 30px;
-  position: relative;
-  font-family: "Space Grotesk", sans-serif;
+/* Brand Column */
+.brand-col h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    color: #fff;
+}
+
+.brand-desc {
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 320px;
+    font-size: 15px;
+}
+
+.cert-badges { display: flex; gap: 15px; }
+.badge { font-size: 11px; border: 1px solid #333; padding: 6px 10px; border-radius: 4px; color: #aaa; font-weight: 600; }
+
+/* Links */
+.nav-col h4 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+.footer-links { list-style: none; padding: 0; margin: 0; }
+.footer-links li { margin-bottom: 12px; }
+.footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 15px;
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+}
+.footer-links a:hover { color: var(--accent); transform: translateX(5px); }
+
+/* Locations & Contact */
+.loc-box { margin-bottom: 25px; }
+.loc-label { display: block; font-size: 11px; color: var(--accent); margin-bottom: 5px; text-transform: uppercase; font-weight: 700; }
+.loc-text { font-size: 14px; color: #ccc; line-height: 1.5; }
+
+.contact-link {
+    font-size: 16px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+.contact-link:hover { color: var(--accent); }
+
+/* --- MAP BUTTON --- */
+.map-trigger-btn {
+    background: var(--text-main);
+    color: #000;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.map-trigger-btn:hover {
+    background: var(--accent);
+    color: #fff;
+}
+
+/* --- BOTTOM BAR --- */
+.footer-bottom {
+    border-top: 1px solid var(--border);
+    padding: 30px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: #555;
+}
+.socials { display: flex; gap: 20px; }
+.socials a { color: #888; font-size: 18px; transition: 0.3s; }
+.socials a:hover { color: var(--accent); }
+
+/* --- MAP MODAL (Hidden Overlay) --- */
+.map-modal-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.9);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+}
+
+.map-modal-content {
+    background: #111;
+    padding: 10px;
+    border: 1px solid #333;
+    position: relative;
+    box-shadow: 0 0 50px rgba(229, 95, 20, 0.2);
+}
+
+.close-map-btn {
+    position: absolute;
+    top: -40px; right: 0;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-family: 'Space Grotesk', sans-serif;
+    text-transform: uppercase;
+}
+.close-map-btn:hover { color: var(--accent); }
+
+
+/* SECTION SETUP */
+.mentors-section {
+    padding: 120px 5%;
+    background: #0a0a0a; /* Dark background to contrast the previous light section */
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+}
+
+.mentor-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* HEADER */
+.mentor-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 80px;
+}
+
+.eyebrow-dark {
+    color: #E55F14;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.mentor-header h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 42px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.text-gradient {
+    background: linear-gradient(90deg, #E55F14, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.mentor-header p {
+    color: #888;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* GRID */
+.mentor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+/* CARD DESIGN */
+.mentor-card {
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: 0.3s;
+    group: hover;
+}
+
+.mentor-card:hover {
+    transform: translateY(-10px);
+    border-color: #E55F14;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+/* IMAGE AREA */
+.mentor-image {
+    height: 320px;
+    position: relative;
+    overflow: hidden;
+}
+
+.mentor-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%); /* B&W by default for serious look */
+    transition: 0.4s;
+}
+
+.mentor-card:hover .mentor-image img {
+    filter: grayscale(0%); /* Color on hover */
+    transform: scale(1.05);
+}
+
+/* Company Badge (Floating) */
+.company-badge {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    color: #000;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex; align-items: center; gap: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* INFO AREA */
+.mentor-info {
+    padding: 30px;
+}
+
+.mentor-info h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 24px;
+    margin: 0 0 5px 0;
+    color: #fff;
+}
+
+.role {
+    display: block;
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 20px;
+}
+
+/* STACK TAGS */
+.stack-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.stack-tags span {
+    font-size: 11px;
+    color: #ccc;
+    background: #222;
+    padding: 6px 12px;
+    border-radius: 4px;
+    border: 1px solid #333;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.mentor-card:hover .stack-tags span {
+    background: rgba(229, 95, 20, 0.1);
+    color: #E55F14;
+    border-color: #E55F14;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .mentor-grid { grid-template-columns: 1fr; }
+}
+
+
+/* SECTION SETUP */
+.hiring-ecosystem {
+    padding: 100px 0; /* Full width, no side padding on container */
+    background: #050505; /* Deep Black */
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden; /* Crucial for marquee */
+    position: relative;
+}
+
+.ecosystem-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 60px;
+    padding: 0 20px;
+}
+
+.eyebrow-orange {
+    color: #E55F14;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.ecosystem-header h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, #E55F14, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.ecosystem-header p {
+    color: #888;
+}
+
+/* --- MARQUEE CONTAINER --- */
+.marquee-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden; /* Hides the scrollbar */
+    margin-bottom: 30px;
+    background: #0f0f0f;
+    padding: 20px 0;
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+}
+
+/* THE TRACK (Holds both sets of logos) */
+.marquee-track {
+    display: flex;
+    width: max-content; /* Allows track to be as wide as needed */
+    gap: 40px; /* Space between logo groups */
+}
+
+/* LOGO GROUP (The actual content) */
+.logo-group {
+    display: flex;
+    gap: 60px; /* Space between logos */
+    align-items: center;
+}
+
+/* INDIVIDUAL LOGOS */
+.partner-logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #555; /* Default Dark Grey */
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    white-space: nowrap; /* Prevents text wrap */
+    transition: 0.3s;
+    cursor: default;
+}
+
+/* Hover Effect: Lights up the logo */
+.partner-logo:hover {
+    color: #fff;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+.partner-logo i { font-size: 28px; }
+
+/* --- THE ANIMATIONS --- */
+
+/* 1. Scroll Left Animation */
+.scroll-left {
+    animation: scrollLeft 40s linear infinite;
+}
+
+@keyframes scrollLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Moves half the width (one set) */
+}
+
+/* 2. Scroll Right Animation */
+.scroll-right {
+    animation: scrollRight 40s linear infinite;
+}
+
+@keyframes scrollRight {
+    0% { transform: translateX(-50%); } /* Starts offset */
+    100% { transform: translateX(0); }
+}
+
+/* --- FADE OVERLAY (Vignette Effect) --- */
+/* This creates a fade on the left and right edges so logos don't just "pop" in */
+.marquee-fade {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, #050505 0%, transparent 20%, transparent 80%, #050505 100%);
+    pointer-events: none; /* Allows click through */
+    z-index: 2;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .partner-logo { font-size: 18px; }
+    .partner-logo i { font-size: 22px; }
+    .logo-group { gap: 40px; }
+    
+    /* Speed up animation on mobile */
+    .scroll-left, .scroll-right { animation-duration: 20s; }
+}
+
+/* SECTION SETUP */
+.final-launch-section {
+    padding: 120px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden; /* Prevents scrollbars during animation */
+
+    /* 1. BACKGROUND: White to Light Orange Gradient */
+    background: linear-gradient(180deg, #ffffff 0%, #fff1e6 100%);
+    color: #000;
+}
+
+/* --- THE CONTENT CONTAINER --- */
+.launch-content {
+    max-width: 700px;
+    width: 100%;
+}
+
+/* --- ANIMATION: Translate X (Slide In) --- */
+/* This handles the "Before Loading" animation */
+.slide-in-x {
+    opacity: 0; /* Hidden initially */
+    animation: slideInLeft 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px); /* Starts 100px to the left */
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0); /* Ends in center */
+    }
+}
+
+/* --- TYPOGRAPHY & ELEMENTS --- */
+
+/* Badge */
+.status-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #E55F14; /* Brand Orange */
+    background: rgba(229, 95, 20, 0.08);
+    padding: 8px 16px;
+    border-radius: 50px;
+    margin-bottom: 25px;
+}
+
+/* Headline */
+.launch-content h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(40px, 6vw, 64px);
+    line-height: 1.1;
+    font-weight: 800;
+    margin: 0 0 20px 0;
+    color: #111;
+}
+
+/* Highlight Text (Orange) */
+.highlight {
+    color: #E55F14;
+}
+
+/* Paragraph */
+.launch-content p {
+    font-size: 18px;
+    color: #666; /* Dark Grey */
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+/* --- BUTTON & ACTIONS --- */
+.launch-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.launch-btn {
+    background: #E55F14; /* Solid Orange */
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 18px 45px;
+    border-radius: 4px;
+    transition: 0.3s;
+    box-shadow: 0 10px 20px rgba(229, 95, 20, 0.2);
+    display: inline-flex; align-items: center; gap: 10px;
+}
+
+.launch-btn:hover {
+    background: #000; /* Turns Black on Hover */
+    transform: translateX(5px); /* Moves slightly right on hover */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.sub-text {
+    font-size: 12px;
+    color: #999;
+}
+
+/* Mobile Tweak */
+@media (max-width: 600px) {
+    .launch-content h2 { font-size: 42px; }
+}
+
+
+
+
+
+/* --- FOOTER VARIABLES --- */
+:root {
+    --bg-deep: #050505;
+    --text-main: #e5e5e5;
+    --text-muted: #888;
+    --accent: #E55F14; /* Oppty Orange */
+    --border: #222;
+}
+
+/* --- FOOTER BASE --- */
+.system-footer {
+    background-color: var(--bg-deep);
+    color: var(--text-main);
+    border-top: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
 }
 
 .footer-container {
-  display: grid;
-  grid-template-columns: 1.2fr 1.5fr 1fr;
-  gap: 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 5%;
 }
 
-/* Oppty Brand Highlight */
-.footer-logo {
-  font-size: 35px;
-  font-weight: 800;
-  letter-spacing: -1px;
-  margin-bottom: 20px;
+/* --- MARQUEE BAR --- */
+.status-marquee {
+    border-bottom: 1px solid var(--border);
+    padding: 12px 0;
+    overflow: hidden;
+    background: #0a0a0a;
 }
 
-.footer-logo span {
-  color: #ec7733; /* Oppty Orange */
+.marquee-content {
+    display: flex;
+    gap: 50px;
+    animation: slideLeft 20s linear infinite;
+    white-space: nowrap;
 }
 
-.brand-info p {
-  color: #999;
-  line-height: 1.8;
-  font-size: 15px;
+.marquee-item {
+    font-family: 'Space Grotesk', monospace;
+    font-size: 12px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex; align-items: center; gap: 8px;
 }
 
-/* Address Styling */
-.footer-column h4 {
-  font-size: 20px;
-  margin-bottom: 30px;
-  position: relative;
-  padding-bottom: 10px;
+.dot-green { 
+    width: 6px; height: 6px; 
+    background: #4cd964; 
+    border-radius: 50%; 
+    box-shadow: 0 0 5px #4cd964; 
 }
 
-.footer-column h4::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 40px;
-  height: 3px;
-  background: #ec7733;
+@keyframes slideLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
-.address-box {
-  margin-bottom: 25px;
+/* --- MAIN GRID --- */
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    gap: 60px;
+    padding: 80px 0;
 }
 
-.address-box h5 {
-  color: #ec7733;
-  font-size: 16px;
-  margin-bottom: 8px;
-  text-transform: uppercase;
+/* Brand Column */
+.brand-col h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    color: #fff;
 }
 
-.address-box p {
-  color: #ccc;
-  font-size: 14px;
-  line-height: 1.6;
+.brand-desc {
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 320px;
+    font-size: 15px;
 }
 
-/* CTA Button */
-.footer-cta {
-  background: #ec7733;
-  border: none;
-  padding: 12px 25px;
-  color: #fff;
-  font-weight: 700;
-  border-radius: 5px;
-  margin-top: 20px;
-  cursor: pointer;
-  transition: 0.3s;
+.cert-badges { display: flex; gap: 15px; }
+.badge { font-size: 11px; border: 1px solid #333; padding: 6px 10px; border-radius: 4px; color: #aaa; font-weight: 600; }
+
+/* Links */
+.nav-col h4 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
 }
 
-.footer-cta:hover {
-  background: #fff;
-  color: #ec7733;
+.footer-links { list-style: none; padding: 0; margin: 0; }
+.footer-links li { margin-bottom: 12px; }
+.footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 15px;
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+}
+.footer-links a:hover { color: var(--accent); transform: translateX(5px); }
+
+/* Locations & Contact */
+.loc-box { margin-bottom: 25px; }
+.loc-label { display: block; font-size: 11px; color: var(--accent); margin-bottom: 5px; text-transform: uppercase; font-weight: 700; }
+.loc-text { font-size: 14px; color: #ccc; line-height: 1.5; }
+
+.contact-link {
+    font-size: 16px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+.contact-link:hover { color: var(--accent); }
+
+/* --- MAP BUTTON --- */
+.map-trigger-btn {
+    background: var(--text-main);
+    color: #000;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s;
+    font-family: 'Space Grotesk', sans-serif;
 }
 
-/* Bottom Bar */
+.map-trigger-btn:hover {
+    background: var(--accent);
+    color: #fff;
+}
+
+/* --- BOTTOM BAR --- */
 .footer-bottom {
-  margin-top: 80px;
-  padding-top: 30px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  text-align: center;
-  font-size: 14px;
-  color: #777;
+    border-top: 1px solid var(--border);
+    padding: 30px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: #555;
+}
+.socials { display: flex; gap: 20px; }
+.socials a { color: #888; font-size: 18px; transition: 0.3s; }
+.socials a:hover { color: var(--accent); }
+
+/* --- MAP MODAL (Hidden Overlay) --- */
+.map-modal-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.9);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
 }
 
-.highlight {
-  color: #ec7733;
-  font-weight: 700;
+.map-modal-content {
+    background: #111;
+    padding: 10px;
+    border: 1px solid #333;
+    position: relative;
+    box-shadow: 0 0 50px rgba(229, 95, 20, 0.2);
 }
+
+.close-map-btn {
+    position: absolute;
+    top: -40px; right: 0;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-family: 'Space Grotesk', sans-serif;
+    text-transform: uppercase;
+}
+.close-map-btn:hover { color: var(--accent); }
+

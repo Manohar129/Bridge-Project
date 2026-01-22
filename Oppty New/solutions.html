@@ -418,68 +418,98 @@
 </section>
 
 
-
-<footer class="industrial-footer">
-    <div class="blueprint-overlay"></div>
+<footer class="system-footer">
     
-    <div class="footer-main">
-        <div class="brand-signature">
-            
-            <img src="../Oppty New/images/oppty.png" alt="Oppty Logo" class="footer-logo-img">
-            
-            <p class="mission-text">Engineered for Global Stability.</p>
-            
-            <div class="social-icons" style="display: flex; gap: 15px; margin-top: 20px;">
-                <a href="https://linkedin.com/company/oppty" style="color: #1a1a1a; font-size: 20px; transition: 0.3s;">
-                    <i class="fa-brands fa-linkedin"></i>
-                </a>
-                <a href="#" style="color: #1a1a1a; font-size: 20px; transition: 0.3s;">
-                    <i class="fa-brands fa-x-twitter"></i>
-                </a>
-                <a href="#" style="color: #1a1a1a; font-size: 20px; transition: 0.3s;">
-                    <i class="fa-brands fa-instagram"></i>
-                </a>
-            </div>
-        </div>
-
-        <div class="info-grid">
-            <div class="grid-col">
-                <span class="col-label">01. Infrastructure</span>
-                <div class="location-item">
-                    <h4>Hyderabad Hub</h4>
-                    <p>601, Mahitha’s Green Galaxy, Kukatpally, TG.</p>
-                </div>
-                <div class="location-item">
-                    <h4>Udaipur Hub</h4>
-                    <p>Plot 26, 100 Feet Rd, Shobhagpura, RJ.</p>
-                </div>
-            </div>
-
-            <div class="grid-col">
-                <span class="col-label">02. Connectivity</span>
-                <a href="mailto:info@oppty.in" class="contact-link">info@oppty.in</a>
-                <a href="tel:+919491209900" class="contact-link">+91 9491209900</a>
-                <div class="status-indicator">
-                    <span class="status-pulse"></span> Systems Online
-                </div>
-            </div>
-
-            <div class="grid-col cta-col">
-                <span class="col-label">03. Action</span>
-                <p>Ready to deploy your next enterprise solution?</p>
-                <button class="industrial-btn">Initialize Project</button>
-            </div>
+    <div class="status-marquee">
+        <div class="marquee-content">
+            <div class="marquee-item"><span class="dot-green"></span> HYDERABAD NODE: ONLINE</div>
+            <div class="marquee-item"><span class="dot-green"></span> UDAIPUR NODE: ONLINE</div>
+            <div class="marquee-item"><span class="dot-green"></span> LATENCY: 24MS</div>
+            <div class="marquee-item"><span class="dot-green"></span> ISO 27001 SECURE</div>
+            <div class="marquee-item"><span class="dot-green"></span> HYDERABAD NODE: ONLINE</div>
+            <div class="marquee-item"><span class="dot-green"></span> UDAIPUR NODE: ONLINE</div>
+            <div class="marquee-item"><span class="dot-green"></span> LATENCY: 24MS</div>
+            <div class="marquee-item"><span class="dot-green"></span> ISO 27001 SECURE</div>
         </div>
     </div>
 
-    <div class="footer-sub-bar">
-        <span>&copy; 2026 OPPTY.IN</span>
-        <div class="sub-links">
-            <a href="#">Privacy</a>
-            <a href="#">Terms</a>
+    <div class="footer-container">
+        
+        <div class="footer-grid">
+            
+            <div class="brand-col">
+                <img src="../Oppty New/images/oppty.png">
+                <p class="brand-desc">
+                    Engineering infrastructure for the modern enterprise. 
+                    We deploy high-velocity squads to build, scale, and maintain your digital ecosystem.
+                </p>
+                <div class="cert-badges">
+                    <span class="badge">ISO 27001</span>
+                    <span class="badge">SOC 2 TYPE II</span>
+                </div>
+            </div>
+
+            <div class="nav-col">
+                <h4>Solutions</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Staff Augmentation</a></li>
+                    <li><a href="#">Dedicated Centers (DDC)</a></li>
+                    <li><a href="#">Legacy Migration</a></li>
+                    <li><a href="#">AI & Data Ops</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-col">
+                <h4>Operations Hubs</h4>
+                <div class="loc-box">
+                    <span class="loc-label">Primary HQ</span>
+                    <p class="loc-text">Hitech City, Hyderabad<br>Telangana 500081</p>
+                </div>
+                <div class="loc-box">
+                    <span class="loc-label">R&D Center</span>
+                    <p class="loc-text">Tech Park, Udaipur<br>Rajasthan 313001</p>
+                </div>
+            </div>
+
+            <div class="nav-col">
+                <h4>Direct Uplink</h4>
+                <div class="loc-box">
+                    <span class="loc-label">Inquiries</span>
+                    <a href="mailto:info@oppty.in" class="contact-link">info@oppty.in</a>
+                </div>
+                
+                <div class="loc-box" style="margin-top: 30px;">
+                    <button class="map-trigger-btn" onclick="openMap()">
+                        <i class="fa-solid fa-map-location-dot"></i> LOCATE HQ
+                    </button>
+                </div>
+            </div>
+
         </div>
+
+        <div class="footer-bottom">
+            <div class="legal">
+                &copy; 2026 Oppty Networks. Systems Nominal. &nbsp;|&nbsp; 
+                <a href="#" style="color:#555; text-decoration:none;">Privacy</a>
+            </div>
+            <div class="socials">
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+
     </div>
 </footer>
+
+<div class="map-modal-overlay" id="mapOverlay">
+    <div class="map-modal-content">
+        <button class="close-map-btn" onclick="closeMap()"><i class="fa-solid fa-xmark"></i> Close Connection</button>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.2934442533036!2d78.3381223!3d17.4934812!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91d5cc2a5227%3A0xde534d4e3362e42b!2sOppty%20TechHub%20Private%20Limited!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+</div>
 <script src="../Oppty New/JS/solution.js"></script>
 </body>
 </html>

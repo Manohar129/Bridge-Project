@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Neon Grid Footer</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap');
+
+        :root {
+            --bg-black: #050505;
+            --border-color: #222;
+            --text-gray: #666;
+            --text-white: #fff;
+            --accent: #E55F14;
+        }
+
+        body { margin: 0; padding: 0; background: #111; font-family: 'Space Grotesk', sans-serif; }
+
+        .neon-grid-footer {
+            background-color: var(--bg-black);
+            color: var(--text-white);
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* 1. TOP CTA SECTION */
+        .grid-cta {
+            padding: 80px 5%;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: 0.3s;
+        }
+
+        .grid-cta:hover {
+            background: rgba(229, 95, 20, 0.03); /* Subtle orange tint */
+        }
+
+        .cta-headline {
+            font-size: clamp(32px, 4vw, 56px);
+            font-weight: 700;
+            line-height: 1.1;
+            margin: 0;
+            color: var(--text-white);
+        }
+
+        .cta-headline span {
+            color: var(--text-gray);
+            font-weight: 300;
+        }
+
+        .cta-button {
+            padding: 18px 36px;
+            background: transparent;
+            border: 1px solid var(--text-white);
+            color: var(--text-white);
+            text-transform: uppercase;
+            font-size: 14px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--accent);
+            z-index: -1;
+            transform: translateX(-100%);
+            transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .cta-button:hover { border-color: var(--accent); }
+        .cta-button:hover::after { transform: translateX(0); }
+
+        /* 2. THE GRID */
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .grid-col {
+            padding: 50px 30px;
+            border-right: 1px solid var(--border-color);
+            transition: 0.4s ease;
+            position: relative;
+        }
+
+        .grid-col:last-child { border-right: none; }
+
+        /* Hover Effect: Cell Glow */
+        .grid-col:hover {
+            background: #0a0a0a;
+            box-shadow: inset 0 0 20px rgba(229, 95, 20, 0.05);
+        }
+
+        .grid-col:hover .col-title { color: var(--accent); }
+
+        .col-title {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #444;
+            margin-bottom: 30px;
+            display: block;
+            transition: 0.3s;
+        }
+
+        /* Links */
+        .nav-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-list li { margin-bottom: 12px; }
+
+        .nav-list a {
+            color: #888;
+            text-decoration: none;
+            font-size: 15px;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-list a:hover {
+            color: var(--text-white);
+            transform: translateX(5px);
+        }
+
+        /* Address Data */
+        .data-row {
+            margin-bottom: 20px;
+        }
+        .data-row label {
+            display: block;
+            font-size: 11px;
+            color: #444;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+        .data-row p {
+            margin: 0;
+            font-size: 15px;
+            color: #ccc;
+            line-height: 1.5;
+        }
+
+        /* 3. BOTTOM BAR */
+        .footer-bottom {
+            padding: 25px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: #444;
+        }
+
+        .socials {
+            display: flex;
+            gap: 20px;
+        }
+
+        .socials a {
+            color: #666;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .socials a:hover { color: var(--accent); }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+            .grid-col:nth-child(2) { border-right: none; }
+            .grid-col { border-bottom: 1px solid var(--border-color); }
+        }
+
+        @media (max-width: 600px) {
+            .grid-cta { flex-direction: column; text-align: center; gap: 30px; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .grid-col { border-right: none; text-align: center; }
+            .footer-bottom { flex-direction: column; gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <footer class="neon-grid-footer">
+        
+        <div class="grid-cta">
+            <h2 class="cta-headline">
+                Ready to deploy? <br>
+                <span>Initialize your squad.</span>
+            </h2>
+            <a href="#contact" class="cta-button">System Access</a>
+        </div>
+
+        <div class="footer-grid">
+            
+            <div class="grid-col">
+                <span class="col-title">/// Identification</span>
+                <h3 style="font-size: 24px; margin: 0 0 15px 0;">OPPTY.</h3>
+                <p style="color: #666; font-size: 14px; line-height: 1.6;">
+                    Global engineering infrastructure for scalable enterprise deployment.
+                </p>
+            </div>
+
+            <div class="grid-col">
+                <span class="col-title">/// Capabilities</span>
+                <ul class="nav-list">
+                    <li><a href="#">Staff Augmentation <i class="fa-solid fa-arrow-right-long" style="font-size: 10px; opacity: 0.5;"></i></a></li>
+                    <li><a href="#">Dedicated Teams <i class="fa-solid fa-arrow-right-long" style="font-size: 10px; opacity: 0.5;"></i></a></li>
+                    <li><a href="#">Build-Operate-Transfer <i class="fa-solid fa-arrow-right-long" style="font-size: 10px; opacity: 0.5;"></i></a></li>
+                    <li><a href="#">Consulting <i class="fa-solid fa-arrow-right-long" style="font-size: 10px; opacity: 0.5;"></i></a></li>
+                </ul>
+            </div>
+
+            <div class="grid-col">
+                <span class="col-title">/// Coordinates</span>
+                <div class="data-row">
+                    <label>Hub 01</label>
+                    <p>Hyderabad, India<br>Hitech City</p>
+                </div>
+                <div class="data-row">
+                    <label>Hub 02</label>
+                    <p>Udaipur, India<br>Tech Park</p>
+                </div>
+            </div>
+
+            <div class="grid-col">
+                <span class="col-title">/// Communication</span>
+                <div class="data-row">
+                    <label>General Inquiry</label>
+                    <p><a href="mailto:info@oppty.in" style="color:#fff; text-decoration:none;">info@oppty.in</a></p>
+                </div>
+                <div class="data-row">
+                    <label>Emergency Ops</label>
+                    <p><a href="tel:+919491209900" style="color:#fff; text-decoration:none;">+91 949 120 9900</a></p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <span>&copy; 2026 Oppty Networks. Systems Secure.</span>
+            
+            <div class="socials">
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-github"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+
+    </footer>
+
+</body>
+</html>

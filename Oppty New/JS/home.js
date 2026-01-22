@@ -300,14 +300,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+    // Function to open the map overlay
+    function openMap() {
+        const overlay = document.getElementById('mapOverlay');
+        overlay.style.display = 'flex'; // Shows the modal
+    }
 
-const footerBrand = document.querySelector('.footer-bottom .highlight');
+    // Function to close the map overlay
+    function closeMap() {
+        const overlay = document.getElementById('mapOverlay');
+        overlay.style.display = 'none'; // Hides the modal
+    }
 
-footerBrand.addEventListener('mouseover', () => {
-    footerBrand.style.textShadow = "0 0 15px #ec7733";
-    footerBrand.style.transition = "0.3s";
-});
-
-footerBrand.addEventListener('mouseout', () => {
-    footerBrand.style.textShadow = "none";
-});
+    // Close the map if the user clicks on the dark background (outside the box)
+    document.getElementById('mapOverlay').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeMap();
+        }
+    });

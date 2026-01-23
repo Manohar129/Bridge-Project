@@ -178,3 +178,42 @@ window.addEventListener('scroll', () => {
             closeMap();
         }
     });
+
+
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.text-slide');
+    const dots = document.querySelectorAll('.dot');
+    const totalSlides = slides.length;
+
+    // Function to change slide
+    function showSlide(index) {
+        // Reset all slides and dots
+        slides.forEach(slide => slide.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+
+        // Activate new slide and dot
+        slides[index].classList.add('active');
+        dots[index].classList.add('active');
+        
+        currentSlide = index;
+    }
+
+    // Function for Dot Click
+    function goToSlide(index) {
+        showSlide(index);
+        // Reset timer so it doesn't auto-switch immediately after click
+        resetTimer();
+    }
+
+    // Auto Play Logic
+    function nextSlide() {
+        let next = (currentSlide + 1) % totalSlides; // Loops back to 0
+        showSlide(next);
+    }
+
+    let slideInterval = setInterval(nextSlide, 5000); // Change every 5 seconds
+
+    function resetTimer() {
+        clearInterval(slideInterval);
+        slideInterval = setInterval(nextSlide, 5000);
+    }

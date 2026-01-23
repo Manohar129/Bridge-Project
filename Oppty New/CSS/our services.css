@@ -214,6 +214,499 @@
 .btn-secondary { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.3); }
 .btn-secondary:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
 
+
+
+
+
+
+
+/* --- GLOBAL CONTAINER --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.eyebrow {
+    color: #E55F14;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.text-white { color: #fff; }
+.text-orange { color: #E55F14; }
+
+/* --- SECTION 1: SERVICES GRID --- */
+.service-grid-section {
+    padding: 100px 0;
+    background: #0a0a0a; /* Slightly lighter than black */
+    font-family: 'Inter', sans-serif;
+}
+
+.section-header h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 42px;
+    color: #555;
+    margin-bottom: 50px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 Columns */
+    gap: 30px;
+}
+
+/* Service Card */
+.service-card {
+    background: #111;
+    border: 1px solid #222;
+    padding: 40px 30px;
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover Effect: Card lifts and border glows orange */
+.service-card:hover {
+    transform: translateY(-5px);
+    border-color: #E55F14;
+    box-shadow: 0 10px 30px rgba(229, 95, 20, 0.1);
+}
+
+.card-icon {
+    font-size: 32px;
+    color: #E55F14;
+    margin-bottom: 25px;
+}
+
+.service-card h3 {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.service-card p {
+    color: #888;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* Sub List (Checkmarks) */
+.sub-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sub-list li {
+    color: #ccc;
+    font-size: 13px;
+    margin-bottom: 8px;
+    display: flex; align-items: center; gap: 10px;
+}
+
+.sub-list i { color: #333; transition: 0.3s; }
+.service-card:hover .sub-list i { color: #E55F14; } /* Icons turn orange on hover */
+
+
+/* --- SECTION 2: PROCESS PROTOCOL --- */
+.process-protocol-section {
+    padding: 100px 0;
+    background: #050505; /* Deep Black */
+    font-family: 'Inter', sans-serif;
+    border-top: 1px solid #222;
+}
+
+.center-text { text-align: center; }
+
+.process-steps {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-top: 60px;
+    position: relative;
+}
+
+.step-item {
+    flex: 1;
+    text-align: center;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.step-number {
+    display: inline-block;
+    font-size: 48px;
+    font-weight: 800;
+    color: #222; /* Dark initially */
+    font-family: 'Space Grotesk', sans-serif;
+    margin-bottom: 10px;
+    transition: 0.3s;
+}
+
+.step-item:hover .step-number { color: #fff; } /* Lights up on hover */
+
+.step-item h3 {
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.step-item p {
+    color: #777;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* Connector Line */
+.step-line {
+    flex: 0.5;
+    height: 1px;
+    background: #222;
+    margin-top: 30px; /* Aligns with middle of numbers */
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .services-grid { grid-template-columns: 1fr; } /* Stack cards */
+    .process-steps { flex-direction: column; gap: 40px; }
+    .step-line { display: none; } /* Hide lines on mobile */
+    .step-item { border-bottom: 1px solid #222; padding-bottom: 30px; }
+}
+
+/* SECTION SETUP */
+.service-fixed-hero {
+    position: relative;
+    height: 90vh; /* 90% of viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+
+    /* SERVICE BACKGROUND IMAGE (Abstract Tech / Server Room) */
+    background-image: url('https://images.unsplash.com/photo-1558494949-ef526b01201b?w=1600&q=80');
+    background-attachment: fixed; /* Freezes the image */
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* OVERLAY */
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Slightly lighter than career to show tech details */
+    z-index: 1;
+}
+
+/* CONTENT */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    padding: 0 20px;
+}
+
+.hero-tag {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 8px 16px;
+    border-radius: 50px;
+    margin-bottom: 25px;
+}
+
+.hero-content h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(35px, 7vw, 60px);
+    line-height: 1.1;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.hero-content p {
+    font-size: 18px;
+    color: #ccc;
+    max-width: 650px;
+    margin: 0 auto 40px auto;
+    line-height: 1.6;
+}
+
+/* CTA BUTTON STYLE */
+.service-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #E55F14; /* Brand Orange */
+    color: #fff;
+    text-decoration: none;
+    padding: 16px 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 4px;
+    transition: 0.3s;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.service-cta-btn:hover {
+    background: #fff;
+    color: #000;
+    transform: translateY(-3px);
+}
+
+/* --- THE TEXT SLIDER LOGIC --- */
+
+/* 1. The Mask */
+.scrolling-words-container {
+    height: 1.1em;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: bottom;
+    margin-bottom: -5px;
+}
+
+/* 2. The Box moving up */
+.scrolling-words-box {
+    display: block;
+    animation: scrollUp 6s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+}
+
+/* 3. The Individual Words */
+.word {
+    display: block;
+    height: 100%;
+    padding-bottom: 10px;
+}
+
+/* Gradient Text (Orange to Purple) */
+.gradient-text {
+    background: linear-gradient(90deg, #E55F14, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent; /* Fallback */
+}
+
+/* 4. The Animation Keyframes */
+/* Moves through 4 items (3 unique + 1 clone) */
+@keyframes scrollUp {
+    0% { transform: translateY(0%); }
+    20% { transform: translateY(0%); } /* Wait on Word 1 */
+    
+    33% { transform: translateY(-25%); } /* Move to Word 2 */
+    53% { transform: translateY(-25%); } /* Wait on Word 2 */
+    
+    66% { transform: translateY(-50%); } /* Move to Word 3 */
+    86% { transform: translateY(-50%); } /* Wait on Word 3 */
+
+    100% { transform: translateY(-75%); } /* Move to Word 4 (Clone of 1) */
+}
+
+/* Mobile Fix */
+@media (max-width: 768px) {
+    .service-fixed-hero { background-attachment: scroll; } /* Better performance on mobile */
+    .hero-content h1 { font-size: 42px; }
+}
+
+
+
+.whatsapp-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    animation: pulse-green 2s infinite;
+}
+
+.whatsapp-btn:hover {
+    background-color: #0ce24c;
+    transform: scale(1.1);
+}
+
+.tooltip-text {
+    position: absolute;
+    right: 70px;
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-family: 'Inter', sans-serif;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+}
+
+.whatsapp-btn:hover .tooltip-text {
+    opacity: 1;
+    visibility: visible;
+    right: 75px;
+}
+
+
+
+
+
+.service-fixed-hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+
+    /* --- BACKGROUND IMAGE IS HERE --- */
+    /* Option 1: Abstract Blue/Orange Server Room (Matches your colors) */
+    background-image: url(../images/images.jfif);
+    
+    background-attachment: fixed; /* Freezes the image */
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+/* SECTION SETUP */
+.staggered-gallery-section {
+    padding: 120px 0; /* Extra padding for the offset look */
+    color:  #050505;
+    font-family: 'Inter', sans-serif;
+}
+
+.gallery-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    gap: 80px; /* Generous space between columns */
+    align-items: flex-start; /* Important for offset to work */
+}
+
+/* --- THE GALLERY ITEM --- */
+.gallery-item {
+    flex: 1; /* Both items take equal width */
+    position: relative;
+    group: pointer; /* Helper for hover states */
+}
+
+/* THE "DIFFERENT" PART: Pushes the 2nd column down */
+.offset-down {
+    margin-top: 100px; /* This creates the staggered look */
+}
+
+/* --- IMAGE FRAME --- */
+.image-frame {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px; /* Sharp, tech-like corners */
+    margin-bottom: 30px;
+    transition: 0.4s ease;
+}
+
+.image-frame img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth easing */
+    filter: grayscale(40%) contrast(1.1); /* Cinematic tech look */
+}
+
+/* Gradient Overlay (Subtle) */
+.overlay-gradient {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    opacity: 0.5;
+}
+
+/* --- HOVER EFFECTS --- */
+.gallery-item:hover .image-frame {
+    border-color: #E55F14; /* Orange Border Glow */
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05); /* Smooth Zoom */
+    filter: grayscale(0%) contrast(1); /* Full Color */
+}
+
+/* --- TEXT DETAILS --- */
+.tech-id {
+    color: #E55F14;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+.item-details h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 28px;
+    margin: 0 0 15px 0;
+    color: #fff;
+    transition: 0.3s;
+}
+
+/* Title turns orange on hover */
+.gallery-item:hover h3 {
+    color: #E55F14;
+}
+
+.item-details p {
+    color: #999;
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 90%;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .gallery-container {
+        flex-direction: column; /* Stack vertically */
+        gap: 60px;
+    }
+    
+    .offset-down {
+        margin-top: 0; /* Remove offset on mobile so it looks normal */
+    }
+}
+
+
+
+
+
 /* === RIGHT SIDE: GLASS TECH CARD === */
 .card-col { flex: 1; display: flex; justify-content: flex-end; }
 

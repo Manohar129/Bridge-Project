@@ -318,3 +318,40 @@ document.addEventListener("DOMContentLoaded", () => {
             closeMap();
         }
     });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const slides = document.querySelectorAll('.slide-item');
+    const dots = document.querySelectorAll('.dot');
+    let currentIndex = 0;
+    let slideTimer;
+
+    function updateSlider(index) {
+        // Remove active class from all
+        slides.forEach(s => s.classList.remove('active'));
+        dots.forEach(d => d.classList.remove('active'));
+
+        // Add active class to target
+        slides[index].classList.add('active');
+        dots[index].classList.add('active');
+        currentIndex = index;
+    }
+
+    // Dot Clicks
+    dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+            updateSlider(i);
+            startAutoPlay(); // Restart timer on click
+        });
+    });
+
+    function startAutoPlay() {
+        clearInterval(slideTimer);
+        slideTimer = setInterval(() => {
+            let nextIndex = (currentIndex + 1) % slides.length;
+            updateSlider(nextIndex);
+        }, 5000); // 5 Seconds
+    }
+
+    startAutoPlay();
+});

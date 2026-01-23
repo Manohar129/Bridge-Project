@@ -257,6 +257,398 @@
     100% { transform: scale(1); opacity: 1; }
 }
 
+.whatsapp-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    animation: pulse-green 2s infinite;
+}
+
+.whatsapp-btn:hover {
+    background-color: #0ce24c;
+    transform: scale(1.1);
+}
+
+.tooltip-text {
+    position: absolute;
+    right: 70px;
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-family: 'Inter', sans-serif;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+}
+
+.whatsapp-btn:hover .tooltip-text {
+    opacity: 1;
+    visibility: visible;
+    right: 75px;
+}
+
+
+
+
+
+
+/* SECTION SETUP */
+.about-fixed-hero {
+    position: relative;
+    height: 90vh; /* 90% of viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+
+    /* ABOUT BACKGROUND IMAGE (Modern Architecture / Structure) */
+    background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&q=80');
+    background-attachment: fixed; /* Freezes the image */
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* OVERLAY */
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); /* High contrast overlay */
+    z-index: 1;
+}
+
+/* CONTENT */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    padding: 0 20px;
+}
+
+.hero-tag {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 8px 16px;
+    border-radius: 50px;
+    margin-bottom: 25px;
+}
+
+.hero-content h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(35px, 7vw, 60px);
+    line-height: 1.1;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.hero-content p {
+    font-size: 18px;
+    color: #ccc;
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+    line-height: 1.6;
+}
+
+/* CTA BUTTON STYLE */
+.about-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #E55F14; /* Brand Orange */
+    color: #fff;
+    text-decoration: none;
+    padding: 16px 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 4px;
+    transition: 0.3s;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.about-cta-btn:hover {
+    background: #fff;
+    color: #000;
+    transform: translateY(-3px);
+}
+
+/* --- THE TEXT SLIDER LOGIC --- */
+
+/* 1. The Mask */
+.scrolling-words-container {
+    height: 1.1em;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: bottom;
+    margin-bottom: -5px;
+}
+
+/* 2. The Box moving up */
+.scrolling-words-box {
+    display: block;
+    animation: scrollUp 6s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+}
+
+/* 3. The Individual Words */
+.word {
+    display: block;
+    height: 100%;
+    padding-bottom: 10px;
+}
+
+/* Gradient Text (Orange to Purple) */
+.gradient-text {
+    background: linear-gradient(90deg, #E55F14, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+/* 4. The Animation Keyframes */
+@keyframes scrollUp {
+    0% { transform: translateY(0%); }
+    20% { transform: translateY(0%); } /* Wait on Word 1 */
+    
+    33% { transform: translateY(-25%); } /* Move to Word 2 */
+    53% { transform: translateY(-25%); } /* Wait on Word 2 */
+    
+    66% { transform: translateY(-50%); } /* Move to Word 3 */
+    86% { transform: translateY(-50%); } /* Wait on Word 3 */
+
+    100% { transform: translateY(-75%); } /* Move to Word 4 (Clone) */
+}
+
+/* Mobile Fix */
+@media (max-width: 768px) {
+    .about-fixed-hero { background-attachment: scroll; }
+    .hero-content h1 { font-size: 42px; }
+}
+
+/* --- GLOBAL --- */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.eyebrow { color: #E55F14; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; display: block; }
+.text-orange { color: #E55F14; }
+.text-white { color: #fff; }
+.center-text { text-align: center; }
+
+/* --- SECTION 1: THE BLUEPRINT --- */
+.about-blueprint-section {
+    padding: 120px 0;
+    background: #0a0a0a;
+    font-family: 'Inter', sans-serif;
+    color: #fff;
+}
+
+.blueprint-flex {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+}
+
+/* Left: Text */
+.blueprint-text { flex: 1; }
+
+.blueprint-text h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 48px;
+    line-height: 1.1;
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+.blueprint-text p {
+    color: #aaa;
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.blueprint-text strong { color: #fff; }
+
+.signature-block {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+}
+
+.founder-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 24px;
+    color: #fff;
+    margin: 0;
+    font-weight: 700;
+}
+
+.founder-title {
+    font-size: 12px;
+    color: #E55F14;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Right: Stats Grid */
+.stats-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.stat-card {
+    background: #111;
+    border: 1px solid #222;
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.stat-card:hover {
+    border-color: #E55F14;
+    transform: translateY(-5px);
+    background: #161616;
+}
+
+.stat-card h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 42px;
+    color: #fff;
+    margin: 0 0 5px 0;
+}
+
+.stat-card p {
+    color: #666;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+/* --- SECTION 2: TEAM --- */
+.about-team-section {
+    padding: 100px 0;
+    background: #050505;
+    font-family: 'Inter', sans-serif;
+    border-top: 1px solid #111;
+}
+
+.section-header h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 42px;
+    color: #555;
+    margin-bottom: 60px;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 4 Columns */
+    gap: 30px;
+}
+
+/* Team Card */
+.team-card {
+    background: transparent;
+}
+
+.member-img {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    border: 1px solid #222;
+}
+
+.member-img img {
+    width: 370px;
+    height: 450px;
+    display: block;
+    filter: grayscale(100%); /* B&W initially */
+    transition: 0.4s;
+}
+
+.team-card:hover img {
+    filter: grayscale(0%); /* Color on hover */
+    transform: scale(1.05);
+}
+
+/* Overlay (Social Icons) */
+.member-overlay {
+    position: absolute;
+    bottom: -50px; /* Hidden below */
+    left: 0; width: 100%;
+    background: rgba(229, 95, 20, 0.9); /* Orange see-through */
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.team-card:hover .member-overlay {
+    bottom: 0; /* Slide up on hover */
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 18px;
+    margin: 0 10px;
+    transition: 0.2s;
+}
+
+.social-icons a:hover { color: #000; }
+
+.member-info { text-align: center; }
+
+.member-info h3 {
+    color: #fff;
+    font-size: 18px;
+    margin: 0 0 5px 0;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.role {
+    color: #666;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .blueprint-flex { flex-direction: column; }
+    .team-grid { grid-template-columns: 1fr 1fr; } /* 2 cols on tablet */
+}
+
+@media (max-width: 600px) {
+    .team-grid { grid-template-columns: 1fr; } /* 1 col on mobile */
+}
+
+
+
 
 
 /* Contact Styling */

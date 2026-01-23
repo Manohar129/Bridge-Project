@@ -277,7 +277,7 @@
 
 .hero-content h1 {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(50px, 7vw, 90px);
+    font-size: clamp(35px, 7vw, 60px);
     line-height: 1.1;
     font-weight: 800;
     margin-bottom: 20px;
@@ -360,6 +360,57 @@
     .fixed-slider-hero { background-attachment: scroll; }
     .hero-content h1 { font-size: 42px; }
 }
+
+.whatsapp-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    animation: pulse-green 2s infinite;
+}
+
+.whatsapp-btn:hover {
+    background-color: #0ce24c;
+    transform: scale(1.1);
+}
+
+.tooltip-text {
+    position: absolute;
+    right: 70px;
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-family: 'Inter', sans-serif;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+}
+
+.whatsapp-btn:hover .tooltip-text {
+    opacity: 1;
+    visibility: visible;
+    right: 75px;
+}
+
+
+
+
+
 
 
 /* --- 1. LAYOUT & BACKGROUND --- */

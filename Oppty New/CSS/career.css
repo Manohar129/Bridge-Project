@@ -102,6 +102,153 @@
 }
 
 
+
+
+/* SECTION SETUP */
+.about-fixed-hero {
+    position: relative;
+    height: 90vh; /* 90% of viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+
+    /* ABOUT BACKGROUND IMAGE (Modern Architecture / Structure) */
+    background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&q=80');
+    background-attachment: fixed; /* Freezes the image */
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* OVERLAY */
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); /* High contrast overlay */
+    z-index: 1;
+}
+
+/* CONTENT */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    padding: 0 20px;
+}
+
+.hero-tag {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 8px 16px;
+    border-radius: 50px;
+    margin-bottom: 25px;
+}
+
+.hero-content h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(35px, 7vw, 60px);
+    line-height: 1.1;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.hero-content p {
+    font-size: 18px;
+    color: #ccc;
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+    line-height: 1.6;
+}
+
+/* CTA BUTTON STYLE */
+.about-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #E55F14; /* Brand Orange */
+    color: #fff;
+    text-decoration: none;
+    padding: 16px 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 4px;
+    transition: 0.3s;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.about-cta-btn:hover {
+    background: #fff;
+    color: #000;
+    transform: translateY(-3px);
+}
+
+/* --- THE TEXT SLIDER LOGIC --- */
+
+/* 1. The Mask */
+.scrolling-words-container {
+    height: 1.1em;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: bottom;
+    margin-bottom: -5px;
+}
+
+/* 2. The Box moving up */
+.scrolling-words-box {
+    display: block;
+    animation: scrollUp 6s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+}
+
+/* 3. The Individual Words */
+.word {
+    display: block;
+    height: 100%;
+    padding-bottom: 10px;
+}
+
+/* Gradient Text (Orange to Purple) */
+.gradient-text {
+    background: linear-gradient(90deg, #E55F14, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+/* 4. The Animation Keyframes */
+@keyframes scrollUp {
+    0% { transform: translateY(0%); }
+    20% { transform: translateY(0%); } /* Wait on Word 1 */
+    
+    33% { transform: translateY(-25%); } /* Move to Word 2 */
+    53% { transform: translateY(-25%); } /* Wait on Word 2 */
+    
+    66% { transform: translateY(-50%); } /* Move to Word 3 */
+    86% { transform: translateY(-50%); } /* Wait on Word 3 */
+
+    100% { transform: translateY(-75%); } /* Move to Word 4 (Clone) */
+}
+
+/* Mobile Fix */
+@media (max-width: 768px) {
+    .about-fixed-hero { background-attachment: scroll; }
+    .hero-content h1 { font-size: 42px; }
+}
+
+
+
+
+
 /* 1. Reset & Island Layout Fixes */
 .command-header {
     display: flex;
@@ -221,10 +368,12 @@
     100% { transform: scale(1); opacity: 1; }
 }
 
+
+
 /* SECTION SETUP */
 .fixed-slider-hero {
     position: relative;
-    height: 90vh; /* 90% of viewport height */
+    height: 100vh; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -232,19 +381,18 @@
     overflow: hidden;
     font-family: 'Inter', sans-serif;
 
-    /* CAREER BACKGROUND IMAGE (Dark Office Vibe) */
+    /* BACKGROUND IMAGE */
     background-image: url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=1600&q=80');
-    background-attachment: fixed; /* Freezes the image */
-    background-position: center center;
+    background-attachment: fixed; /* Parallax Effect */
+    background-position: center;
     background-size: cover;
-    background-repeat: no-repeat;
 }
 
 /* OVERLAY */
 .hero-overlay {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.85); /* Darker overlay for contrast */
+    background: rgba(0, 0, 0, 0.85); 
     z-index: 1;
 }
 
@@ -262,7 +410,6 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: #fff;
     border: 1px solid rgba(255, 255, 255, 0.2);
     padding: 8px 16px;
     border-radius: 50px;
@@ -270,12 +417,10 @@
 }
 
 .hero-content h1 {
-    font-family: 'Space Grotesk', sans-serif;
     font-size: clamp(35px, 7vw, 60px);
     line-height: 1.1;
     font-weight: 800;
     margin-bottom: 20px;
-    color: #fff;
 }
 
 .hero-content p {
@@ -283,24 +428,21 @@
     color: #ccc;
     max-width: 600px;
     margin: 0 auto 40px auto;
-    line-height: 1.6;
 }
 
-/* CTA BUTTON STYLE */
+/* BUTTON */
 .career-cta-btn {
     display: inline-flex;
     align-items: center;
     gap: 10px;
     background: #E55F14;
     color: #fff;
-    text-decoration: none;
     padding: 16px 32px;
     font-weight: 700;
+    text-decoration: none;
     text-transform: uppercase;
     border-radius: 4px;
     transition: 0.3s;
-    font-size: 14px;
-    letter-spacing: 1px;
 }
 
 .career-cta-btn:hover {
@@ -309,56 +451,47 @@
     transform: translateY(-3px);
 }
 
-/* --- THE TEXT SLIDER LOGIC --- */
+/* --- TEXT SLIDER LOGIC --- */
 
-/* 1. The Mask (Hides the words that are outside) */
 .scrolling-words-container {
-    height: 1.1em; /* Matches font line-height */
+    height: 1.2em; /* Height of one word */
     overflow: hidden;
     display: inline-block;
-    vertical-align: bottom;
-    margin-bottom: -5px; /* Alignment tweak */
+    vertical-align: bottom; 
 }
 
-/* 2. The Box moving up */
 .scrolling-words-box {
     display: block;
-    animation: scrollUp 6s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+    /* 6 seconds loop: Stay on each word then slide */
+    animation: scrollUp 8s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
 }
 
-/* 3. The Individual Words */
 .word {
     display: block;
-    height: 100%;
-    padding-bottom: 10px; /* Spacing */
+    height: 1.2em;
+    line-height: 1.2em;
 }
 
-/* Brand Gradient on Words (Orange to Purple) */
-.scrolling-words-box .gradient-text{
-  background: linear-gradient(90deg, #E55F14, #a855f7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
+/* Brand Gradient */
+.gradient-text {
+    background: linear-gradient(90deg, #E55F14, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
 }
 
-/* 4. The Animation Keyframes */
+/* Animation Keyframes (For 4 items including the clone) */
 @keyframes scrollUp {
-    0% { transform: translateY(0%); }
-    20% { transform: translateY(0%); } /* Pause */
-    
-    33% { transform: translateY(-25%); } /* Move to Word 2 */
-    53% { transform: translateY(-25%); } /* Pause */
-    
-    66% { transform: translateY(-50%); } /* Move to Word 3 */
-    86% { transform: translateY(-50%); } /* Pause */
-
-    100% { transform: translateY(-75%); } /* Move to Duplicate Word 1 (Loop) */
+    0%, 20% { transform: translateY(0); } /* Word 1 */
+    25%, 45% { transform: translateY(-1.2em); } /* Word 2 */
+    50%, 70% { transform: translateY(-2.4em); } /* Word 3 */
+    75%, 95% { transform: translateY(-3.6em); } /* Word 4 (Clone) */
+    100% { transform: translateY(0); } /* Reset */
 }
 
-/* Mobile Fix */
+/* Mobile Adjustments */
 @media (max-width: 768px) {
-    .fixed-slider-hero { background-attachment: scroll; }
+    .fixed-slider-hero { background-attachment: scroll; height: 80vh; }
     .hero-content h1 { font-size: 42px; }
 }
 

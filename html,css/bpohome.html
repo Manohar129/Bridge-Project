@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+ /* ================= LOGO ABOVE FOOTER ================= */
+ /* ===== TOP DARK FOOTER ===== */
+.footer-dark {
+    background: linear-gradient(135deg, #2b3f4e, #1f2d38);
+    padding: 70px 0;
+}
+
+/* GRID LAYOUT */
+.footer-dark-row {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 180px 1fr 180px;
+    align-items: center;
+    text-align: center;
+}
+
+/* LOGOS */
+.footer-dark-logo img {
+    height: 60px;
+    opacity: 0.95;
+}
+
+/* EMAIL */
+.footer-email-big {
+    font-size: 38px;
+    font-weight: 300;
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+
+.footer-email-big span {
+    color: #f28c28;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+    .footer-dark-row {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .footer-email-big {
+        font-size: 30px;
+    }
+
+    .footer-dark-logo img {
+        height: 52px;
+    }
+}
+
+.footer-logo-holder {
+    background: #ffffff;
+    text-align: center;
+    padding: 40px 0 20px;
+}
+
+.footer-logo-holder img {
+    height: 70px;
+}
+
+/* ================= FOOTER BASE ================= */
+.footer-exact {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ================= TOP DARK SECTION ================= */
+.footer-dark {
+    background: linear-gradient(135deg, #2b3f4e, #1f2d38);
+    padding: 70px 0 55px;
+}
+
+.footer-dark-inner {
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+}
+
+/* BIG EMAIL */
+.footer-email-big {
+    font-size: 38px;
+    color: #ffffff;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.footer-email-big span {
+    color: #f28c28;
+}
+
+/* SOCIAL TEXT LINKS */
+.footer-social-inline {
+    margin-top: 22px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: #cfd8e3;
+}
+
+.footer-social-inline a {
+    color: #cfd8e3;
+    margin: 0 6px;
+}
+
+.footer-social-inline a:hover {
+    color: #f28c28;
+}
+
+/* ================= BOTTOM LIGHT SECTION ================= */
+.footer-light {
+    background: #f5f7fa;
+    padding: 60px 0;
+}
+
+.footer-light-inner {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 180px 1fr 1.2fr;
+    align-items: center;
+    column-gap: 50px;
+}
+
+/* ORANGE CIRCLE */
+.footer-circle {
+    width: 150px;
+    height: 150px;
+    background: #f28c28;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1.4;
+}
+
+/* PHONE NUMBERS */
+.footer-phones p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+/* MENU LINKS */
+.footer-menu {
+    display: flex;
+    justify-content: flex-end;
+    gap: 30px;
+}
+
+.footer-menu a {
+    font-size: 14px;
+    font-weight: 500;
+    color: #444;
+}
+
+.footer-menu a:hover {
+    color: #f28c28;
+}
+
+
+/* ===== TOP DARK FOOTER ===== */
+.footer-dark {
+    background: linear-gradient(135deg, #2b3f4e, #1f2d38);
+    padding: 70px 0;
+}
+
+.footer-dark-row {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 180px 1fr 220px;
+    align-items: center;
+}
+
+/* ORDER CONTROL */
+.footer-dark-logo {
+    order: 1; /* LEFT */
+}
+
+.footer-email-big {
+    order: 2; /* CENTER */
+    text-align: center;
+}
+
+.footer-social-icons {
+    order: 3; /* RIGHT */
+    display: flex;
+    gap: 18px;
+    justify-content: flex-end;
+}
+
+/* LOGO */
+.footer-dark-logo img {
+    height: 60px;
+}
+
+/* EMAIL */
+.footer-email-big {
+    font-size: 38px;
+    font-weight: 300;
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+
+.footer-email-big span {
+    color: #f28c28;
+}
+
+/* SOCIAL ICONS */
+.footer-social-icons a {
+    color: #cfd8e3;
+    font-size: 18px;
+    transition: 0.3s ease;
+}
+
+.footer-social-icons a:hover {
+    color: #f28c28;
+    transform: translateY(-3px);
+}
+
+/* ===== BOTTOM LIGHT AREA GRID ===== */
+.footer-light-inner {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 180px 1fr 1fr 1fr;
+    align-items: start;
+    gap: 50px;
+}
+
+/* LINKS COLUMN */
+.footer-links-column h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 14px;
+}
+
+.footer-links-column ul {
+    list-style: none;
+}
+
+.footer-links-column li {
+    margin-bottom: 10px;
+}
+
+.footer-links-column a {
+    font-size: 14px;
+    color: #555;
+    transition: 0.3s ease;
+}
+
+.footer-links-column a:hover {
+    color: #f28c28;
+    padding-left: 4px;
+}
+
+/* CONTACT */
+.footer-phones p {
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+
+/* ==================================================
+   FOOTER – EXACT & ALIGNED
+================================================== */
+
+/* ---------- FOOTER BASE ---------- */
+.footer-exact {
+    font-family: "Segoe UI", Arial, sans-serif;
+    width: 100%;
+}
+
+/* ==================================================
+   TOP DARK AREA
+================================================== */
+.footer-dark {
+    background: linear-gradient(135deg, #2b3f4e, #1f2d38);
+    padding: 70px 0;
+}
+
+/* GRID: LOGO | EMAIL | SOCIAL */
+.footer-dark-row {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 200px 1fr 200px;
+    align-items: center;
+}
+
+/* LEFT – LOGO */
+.footer-dark-logo {
+    justify-self: start;
+}
+
+.footer-dark-logo img {
+    height: 60px;
+}
+
+/* CENTER – EMAIL */
+.footer-email-big {
+    text-align: center;
+    font-size: 38px;
+    font-weight: 300;
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+
+.footer-email-big span {
+    color: #f28c28;
+}
+
+/* RIGHT – SOCIAL ICONS */
+.footer-social-icons {
+    justify-self: end;
+    display: flex;
+    gap: 18px;
+}
+
+.footer-social-icons a {
+    color: #cfd8e3;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+.footer-social-icons a:hover {
+    color: #f28c28;
+    transform: translateY(-3px);
+}
+
+/* ==================================================
+   BOTTOM LIGHT AREA
+================================================== */
+.footer-light {
+    background: #f5f7fa;
+    padding: 65px 0;
+}
+
+.footer-light-inner {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 180px 220px 1fr 1fr;
+    column-gap: 50px;
+    align-items: start;
+}
+
+/* ORANGE CIRCLE */
+.footer-circle {
+    width: 150px;
+    height: 150px;
+    background: #f28c28;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1.4;
+}
+
+/* PHONE NUMBERS */
+.footer-phones p {
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+/* LINKS COLUMNS */
+.footer-links-column h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 14px;
+}
+
+.footer-links-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links-column li {
+    margin-bottom: 10px;
+}
+
+.footer-links-column a {
+    font-size: 14px;
+    color: #555;
+    transition: all 0.3s ease;
+}
+
+.footer-links-column a:hover {
+    color: #f28c28;
+    padding-left: 4px;
+}
+
+
+
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <!-- LOGO ABOVE FOOTER -->
+<footer class="footer-exact">
+
+    <!-- TOP DARK AREA -->
+    <div class="footer-dark">
+        <div class="footer-dark-row">
+
+            <!-- SOCIAL ICONS (RIGHT) -->
+            <div class="footer-social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-x-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+
+            <!-- CENTER EMAIL -->
+            <div class="footer-email-big">
+                info<span>@</span>oppty.in
+            </div>
+
+            <!-- LOGO (LEFT) -->
+            <div class="footer-dark-logo">
+                <img src="../img/oppty.png" alt="Oppty Logo">
+            </div>
+
+        </div>
+    </div>
+
+    <!-- BOTTOM LIGHT AREA -->
+    <div class="footer-light">
+        <div class="footer-light-inner">
+
+            <!-- LEFT CIRCLE -->
+            <div class="footer-circle">
+                HAVE ANY<br>QUESTIONS?
+            </div>
+
+            <!-- CONTACT -->
+            <div class="footer-phones">
+                <p><strong>USA :</strong> (929) 730-2544</p>
+                <p><strong>INDIA :</strong> 080 2308 5600</p>
+            </div>
+
+            <!-- SERVICES LINKS -->
+            <div class="footer-links-column">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="../what we do html/bms.html">Break Management System</a></li>
+                    <li><a href="../what we do html/L&s.html">Logistics & Supply Chain</a></li>
+                    <li><a href="../what we do html/finance.html">Finance & Accounting</a></li>
+                    <li><a href="../what we do html/ui&ux.html">UI/UX Design</a></li>
+                </ul>
+            </div>
+
+            <!-- COMPANY LINKS -->
+            <div class="footer-links-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="../html/About.html">About Us</a></li>
+                    <li><a href="../html/Insights.html">Insights</a></li>
+                    <li><a href="../html/careers.html">Careers</a></li>
+                    <li><a href="../html/contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+
+</footer>
+
+    
+</body>
+</html>

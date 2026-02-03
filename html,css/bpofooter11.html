@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppty | Professional BPO Footer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --oppty-orange: #e55f14;
+            --oppty-orange-grad: linear-gradient(135deg, #e55f14, #ff8c42);
+            --oppty-navy: #1d2b3a;
+            --oppty-dark: #0f0f0f;
+            --text-light: #cfd8e3;
+            --glass: rgba(255, 255, 255, 0.05);
+            --radius-lg: 30px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .footer-exact {
+            font-family: 'Inter', sans-serif;
+            width: 100%;
+        }
+
+        /* ==================================================
+           TOP DARK AREA (The Interaction Bar)
+        ================================================== */
+        .footer-dark {
+            background: #0a0e14; /* Match your Night-Mode theme */
+            padding: 80px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+
+        .footer-dark-row {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 200px 1fr 200px;
+            align-items: center;
+        }
+
+        /* LEFT – LOGO */
+        .footer-dark-logo {
+            justify-self: start;
+        }
+
+        .footer-dark-logo img {
+            height: 55px;
+            filter: brightness(1.2);
+            transition: transform 0.3s ease;
+        }
+
+        .footer-dark-logo img:hover {
+            transform: scale(1.05);
+        }
+
+        /* CENTER – BIG EMAIL */
+        .footer-email-big {
+            text-align: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 36px;
+            font-weight: 300;
+            color: #ffffff;
+            letter-spacing: 1px;
+        }
+
+        .footer-email-big span {
+            color: var(--oppty-orange);
+            font-weight: 700;
+        }
+
+        /* RIGHT – SOCIAL ICONS */
+        .footer-social-icons {
+            justify-self: end;
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer-social-icons a {
+            width: 45px;
+            height: 45px;
+            background: var(--glass);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-size: 16px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+        }
+
+        .footer-social-icons a:hover {
+            background: var(--oppty-orange-grad);
+            color: #fff;
+            transform: translateY(-5px) rotate(360deg);
+            border-color: transparent;
+            box-shadow: 0 10px 20px rgba(229, 95, 20, 0.3);
+        }
+
+        /* ==================================================
+           BOTTOM LIGHT AREA (The Information Block)
+        ================================================== */
+        .footer-light {
+            background: #fdfdfd;
+            padding: 80px 0;
+        }
+
+        .footer-light-inner {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 220px 220px 1fr 1fr;
+            column-gap: 60px;
+            align-items: start;
+        }
+
+        /* THE QUESTIONS CIRCLE */
+        .footer-circle {
+            width: 160px;
+            height: 160px;
+            background: var(--oppty-orange-grad);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.3;
+            letter-spacing: 1px;
+            box-shadow: 0 15px 30px rgba(229, 95, 20, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .footer-circle:hover {
+            transform: scale(1.05);
+        }
+
+        /* PHONE & ADDRESS */
+        .footer-phones {
+            padding-top: 10px;
+        }
+
+        .footer-phones p {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .footer-phones strong {
+            display: block;
+            color: var(--oppty-navy);
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        /* NAVIGATION COLUMNS */
+        .footer-links-column h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--oppty-navy);
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-links-column h4::after {
+            content: '';
+            position: absolute;
+            left: 0; bottom: 0;
+            width: 30px; height: 2px;
+            background: var(--oppty-orange);
+        }
+
+        .footer-links-column ul {
+            list-style: none;
+        }
+
+        .footer-links-column li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links-column a {
+            font-size: 15px;
+            color: #666;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-links-column a:hover {
+            color: var(--oppty-orange);
+            transform: translateX(8px);
+        }
+
+        /* ==================================================
+           TRUST BAR (NEW - Certification Area)
+        ================================================== */
+        .trust-bar {
+            border-top: 1px solid #eee;
+            padding: 30px 0;
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            filter: grayscale(1);
+            opacity: 0.5;
+        }
+
+        .trust-bar img {
+            height: 35px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .footer-dark-row {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+            .footer-dark-logo, .footer-social-icons {
+                justify-self: center;
+            }
+            .footer-light-inner {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .footer-light-inner {
+                grid-template-columns: 1fr;
+            }
+            .footer-circle {
+                margin: 0 auto 30px;
+            }
+            .footer-email-big {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<footer class="footer-exact">
+
+    <div class="footer-dark">
+        <div class="footer-dark-row">
+
+            <div class="footer-dark-logo">
+                <img src="../img/oppty.png" alt="Oppty Logo">
+            </div>
+
+            <div class="footer-email-big">
+                info<span>@</span>oppty.in
+            </div>
+
+            <div class="footer-social-icons">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="footer-light">
+        <div class="footer-light-inner">
+
+            <div class="footer-circle">
+                <i class="fa-solid fa-comments" style="font-size: 24px; margin-bottom: 10px;"></i>
+                HAVE ANY<br>QUESTIONS?
+            </div>
+
+            <div class="footer-phones">
+                <p><strong>USA Office</strong> (929) 730-2544</p>
+                <p><strong>India Headquarters</strong> 080 2308 5600</p>
+                <p><strong>Support Email</strong> help@oppty.in</p>
+            </div>
+
+            <div class="footer-links-column">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="../what we do html/bms.html">Break Management System</a></li>
+                    <li><a href="../what we do html/L&s.html">Logistics & Supply Chain</a></li>
+                    <li><a href="../what we do html/finance.html">Finance & Accounting</a></li>
+                    <li><a href="../what we do html/ui&ux.html">UI/UX Design</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="../html/About.html">About Us</a></li>
+                    <li><a href="../html/Insights.html">Insights</a></li>
+                    <li><a href="../html/careers.html">Careers</a></li>
+                    <li><a href="../html/contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-light-inner">
+             <div class="trust-bar" style="grid-column: span 4; width: 100%;">
+                <img src="https://via.placeholder.com/100x40?text=MSME" alt="MSME Certified">
+                <img src="https://via.placeholder.com/100x40?text=StartupIndia" alt="Startup India">
+                <img src="https://via.placeholder.com/100x40?text=MCA" alt="MCA Reg">
+                <p style="font-size: 11px; color: #aaa; text-transform: uppercase; letter-spacing: 1px;">© 2026 Oppty BPO Solutions. All Rights Reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
